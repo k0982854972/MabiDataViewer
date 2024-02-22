@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MabiDataViewer", "MabiDataViewer\MabiDataViewer.csproj", "{96ECD01C-9FB0-4203-ADEA-E28E02C6980C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96ECD01C-9FB0-4203-ADEA-E28E02C6980C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96ECD01C-9FB0-4203-ADEA-E28E02C6980C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96ECD01C-9FB0-4203-ADEA-E28E02C6980C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96ECD01C-9FB0-4203-ADEA-E28E02C6980C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23C7D395-2F12-4619-B969-858647222F51}
+	EndGlobalSection
+EndGlobal
