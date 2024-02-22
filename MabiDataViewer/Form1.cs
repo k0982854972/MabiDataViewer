@@ -24,19 +24,20 @@ namespace MabiDataViewer
             InitializeComponent();
             dataGridView1.AllowUserToAddRows = false;
         }
-        
+
+        private DataTable dataTable;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
                 Stopwatch stopwatch = Stopwatch.StartNew();
-                DataTable dataTable_itemName = new DataTable("itemDataTable");
-                dataTable_itemName.Columns.Add("ID");
-                dataTable_itemName.Columns.Add("Description");
-                dataSet1.Tables.Add(dataTable_itemName);
-                string filePath = "ItemDB.china.txt";
-                ReadDataFromFile(filePath, dataTable_itemName);
-                dataGridView2.DataSource = dataTable_itemName;
+                this.dataTable = new DataTable("itemDataTable");
+                this.dataTable.Columns.Add("ID");
+                this.dataTable.Columns.Add("Description");
+                dataSet1.Tables.Add(this.dataTable);
+                
+                dataGridView2.DataSource = this.dataTable;
                 /*
                 // 使用 XElement.Load 從 XML 檔案中讀取資料
                 XElement xmlData = XElement.Load("ItemDB.xml"); // 請替換為您的 XML 檔案路徑
@@ -400,122 +401,28 @@ namespace MabiDataViewer
             {
                 // 使用 XElement.Load 從 XML 檔案中讀取資料
                 XElement xmlData = XElement.Load("ItemDB.xml");
-                DataTable dataTable_itemdb = new DataTable();
-                dataTable_itemdb.Columns.Add("ID");
-                dataTable_itemdb.Columns.Add("DB_StoreType");
-                dataTable_itemdb.Columns.Add("Category");
-                dataTable_itemdb.Columns.Add("XML");
-                dataTable_itemdb.Columns.Add("Text_Name0");
-                dataTable_itemdb.Columns.Add("Locale");
-                dataTable_itemdb.Columns.Add("feature");
-                dataTable_itemdb.Columns.Add("Text_Name1");
-                dataTable_itemdb.Columns.Add("Text_Desc1");
-                dataTable_itemdb.Columns.Add("Bundle_Type");
-                dataTable_itemdb.Columns.Add("Bundle_Max");
-                dataTable_itemdb.Columns.Add("Price_Buy");
-                dataTable_itemdb.Columns.Add("Price_Sell");
-                dataTable_itemdb.Columns.Add("Attr_ActionFlag");
-                dataTable_itemdb.Columns.Add("Attr_Type");
-                dataTable_itemdb.Columns.Add("Attr_Grade");
-                dataTable_itemdb.Columns.Add("Attr_RaceFilter");
-                dataTable_itemdb.Columns.Add("File_MaleMesh");
-                dataTable_itemdb.Columns.Add("File_FemaleMesh");
-                dataTable_itemdb.Columns.Add("File_GiantMesh");
-                dataTable_itemdb.Columns.Add("File_FemaleGiantMesh");
-                dataTable_itemdb.Columns.Add("File_FieldMesh");
-                dataTable_itemdb.Columns.Add("File_InvImage");
-                dataTable_itemdb.Columns.Add("Inv_XSize");
-                dataTable_itemdb.Columns.Add("Inv_YSize");
-                dataTable_itemdb.Columns.Add("App_WeaponActionType");
-                dataTable_itemdb.Columns.Add("App_WearType");
-                dataTable_itemdb.Columns.Add("App_UseC4Layer");
-                dataTable_itemdb.Columns.Add("App_Color1");
-                dataTable_itemdb.Columns.Add("App_Color2");
-                dataTable_itemdb.Columns.Add("App_Color3");
-                dataTable_itemdb.Columns.Add("App_Color5");
-                dataTable_itemdb.Columns.Add("App_Color6");
-                dataTable_itemdb.Columns.Add("App_Color7");
-                dataTable_itemdb.Columns.Add("App_ColorOrder");
-                dataTable_itemdb.Columns.Add("App_AnimationType");
-                dataTable_itemdb.Columns.Add("App_SittingType");
-                dataTable_itemdb.Columns.Add("Taste_Beauty");
-                dataTable_itemdb.Columns.Add("Taste_Indivisuality");
-                dataTable_itemdb.Columns.Add("Taste_Luxury");
-                dataTable_itemdb.Columns.Add("Taste_Toughness");
-                dataTable_itemdb.Columns.Add("Taste_Utility");
-                dataTable_itemdb.Columns.Add("Taste_Rarity");
-                dataTable_itemdb.Columns.Add("Taste_Meaning");
-                dataTable_itemdb.Columns.Add("Taste_Adult");
-                dataTable_itemdb.Columns.Add("Taste_Maniac");
-                dataTable_itemdb.Columns.Add("Taste_Anime");
-                dataTable_itemdb.Columns.Add("Taste_Sexy");
-                dataTable_itemdb.Columns.Add("File_WallMesh");
-                dataTable_itemdb.Columns.Add("Metalware_UItooltip");
-                dataTable_itemdb.Columns.Add("Enchant_UItooltip");
-                dataTable_itemdb.Columns.Add("Upgrade_UItooltip");
-                dataTable_itemdb.Columns.Add("Par_BlockUseFlag");
-                dataTable_itemdb.Columns.Add("Par_UpgradeMax");
-                dataTable_itemdb.Columns.Add("Par_GemUpgradeMax");
-                dataTable_itemdb.Columns.Add("Par_DurabilityMax");
-                dataTable_itemdb.Columns.Add("Par_Defense");
-                dataTable_itemdb.Columns.Add("Par_ProtectRate");
-                dataTable_itemdb.Columns.Add("Par_AttackMin");
-                dataTable_itemdb.Columns.Add("Par_AttackMax");
-                dataTable_itemdb.Columns.Add("Par_WAttackMin");
-                dataTable_itemdb.Columns.Add("Par_WAttackMax");
-                dataTable_itemdb.Columns.Add("Par_CriticalRate");
-                dataTable_itemdb.Columns.Add("Par_AttackBalance");
-                dataTable_itemdb.Columns.Add("Par_EffectiveRange");
-                dataTable_itemdb.Columns.Add("Par_AttackSpeed");
-                dataTable_itemdb.Columns.Add("Par_DownHitCount");
-                dataTable_itemdb.Columns.Add("Par_BasicOption");
-                dataTable_itemdb.Columns.Add("Attr_ItemEnhanceSet");
-                dataTable_itemdb.Columns.Add("Shopping_Book_Type");
-                dataTable_itemdb.Columns.Add("Food_BlockUseFlag");
-                dataTable_itemdb.Columns.Add("Food_Type");
-                dataTable_itemdb.Columns.Add("Food_Amount");
-                dataTable_itemdb.Columns.Add("Food_AmountFlag");
-                dataTable_itemdb.Columns.Add("Food_Str");
-                dataTable_itemdb.Columns.Add("Food_Int");
-                dataTable_itemdb.Columns.Add("Food_Dex");
-                dataTable_itemdb.Columns.Add("Food_Will");
-                dataTable_itemdb.Columns.Add("Food_Luck");
-                dataTable_itemdb.Columns.Add("Food_Life");
-                dataTable_itemdb.Columns.Add("Food_Mana");
-                dataTable_itemdb.Columns.Add("Food_Stamina");
-                dataTable_itemdb.Columns.Add("Food_Fatness");
-                dataTable_itemdb.Columns.Add("Food_Upper");
-                dataTable_itemdb.Columns.Add("Food_Lower");
-                dataTable_itemdb.Columns.Add("Food_Toxic");
-                dataTable_itemdb.Columns.Add("FoodEffectXML");
-                dataTable_itemdb.Columns.Add("SmartSearchFlag");
-                dataTable_itemdb.Columns.Add("AuctionSearchFlag");
+                DataTable dataTable_itemdb = getTable();
 
                 foreach (XElement element in xmlData.Elements("Mabi_Item"))
                 {
                     DataRow row = dataTable_itemdb.NewRow();
                     foreach (XAttribute attribute in element.Attributes())
                     {
-                        string attributeName = attribute.Name.LocalName;
+                        string attributeName = attribute.Name;
                         string attributeValue = attribute.Value;
 
-                        if ((attribute.Name == "Text_Name1" || attribute.Name == "Text_Desc1") && attribute.Value.Contains("_LT[xml.itemdb"))
+                        if ((attributeName == "Text_Name1" || 
+                             attributeName == "Text_Desc1") && 
+                             attributeValue.Contains("_LT[xml.itemdb"))
                         {
-                            string result = "";
-                            string namestring = attributeValue;
-                            int startIndex = namestring.IndexOf("_LT[xml.itemdb.") + "_LT[xml.itemdb.".Length;
-                            int endIndex = namestring.IndexOf("]", startIndex);
-                            if (startIndex != -1 && endIndex != -1)
+                            // 取 xml 內容
+                            string cellContent = attributeValue.Split(']')[1];
+                            if (!string.IsNullOrEmpty(cellContent))
                             {
-                                // 截取所需的字串
-                                result = namestring.Substring(startIndex, endIndex - startIndex);
-                                DataRow[] foundRows = dataSet1.Tables["itemDataTable"].Select($"ID='{result}'");
-                                if (foundRows.Length > 0)
+                                DataRow foundRows = this.dataTable.AsEnumerable().FirstOrDefault(r => r.Field<String>("ID") == cellContent);
+                                if (foundRows != null)
                                 {
-                                    foreach (DataRow rows in foundRows)
-                                    {
-                                        row[attributeName] = rows["Description"].ToString();
-                                    }
+                                    row[attributeName] = foundRows["Description"].ToString();
                                 }
                                 else
                                 {
@@ -542,6 +449,100 @@ namespace MabiDataViewer
             {
                 MessageBox.Show("發生錯誤: " + ex);
             }
+        }
+
+        private DataTable getTable () {
+            DataTable dataTable_itemdb = new DataTable();
+            dataTable_itemdb.Columns.Add("ID");
+            dataTable_itemdb.Columns.Add("DB_StoreType");
+            dataTable_itemdb.Columns.Add("Category");
+            dataTable_itemdb.Columns.Add("XML");
+            dataTable_itemdb.Columns.Add("Text_Name0");
+            dataTable_itemdb.Columns.Add("Locale");
+            dataTable_itemdb.Columns.Add("feature");
+            dataTable_itemdb.Columns.Add("Text_Name1");
+            dataTable_itemdb.Columns.Add("Text_Desc1");
+            dataTable_itemdb.Columns.Add("Bundle_Type");
+            dataTable_itemdb.Columns.Add("Bundle_Max");
+            dataTable_itemdb.Columns.Add("Price_Buy");
+            dataTable_itemdb.Columns.Add("Price_Sell");
+            dataTable_itemdb.Columns.Add("Attr_ActionFlag");
+            dataTable_itemdb.Columns.Add("Attr_Type");
+            dataTable_itemdb.Columns.Add("Attr_Grade");
+            dataTable_itemdb.Columns.Add("Attr_RaceFilter");
+            dataTable_itemdb.Columns.Add("File_MaleMesh");
+            dataTable_itemdb.Columns.Add("File_FemaleMesh");
+            dataTable_itemdb.Columns.Add("File_GiantMesh");
+            dataTable_itemdb.Columns.Add("File_FemaleGiantMesh");
+            dataTable_itemdb.Columns.Add("File_FieldMesh");
+            dataTable_itemdb.Columns.Add("File_InvImage");
+            dataTable_itemdb.Columns.Add("Inv_XSize");
+            dataTable_itemdb.Columns.Add("Inv_YSize");
+            dataTable_itemdb.Columns.Add("App_WeaponActionType");
+            dataTable_itemdb.Columns.Add("App_WearType");
+            dataTable_itemdb.Columns.Add("App_UseC4Layer");
+            dataTable_itemdb.Columns.Add("App_Color1");
+            dataTable_itemdb.Columns.Add("App_Color2");
+            dataTable_itemdb.Columns.Add("App_Color3");
+            dataTable_itemdb.Columns.Add("App_Color5");
+            dataTable_itemdb.Columns.Add("App_Color6");
+            dataTable_itemdb.Columns.Add("App_Color7");
+            dataTable_itemdb.Columns.Add("App_ColorOrder");
+            dataTable_itemdb.Columns.Add("App_AnimationType");
+            dataTable_itemdb.Columns.Add("App_SittingType");
+            dataTable_itemdb.Columns.Add("Taste_Beauty");
+            dataTable_itemdb.Columns.Add("Taste_Indivisuality");
+            dataTable_itemdb.Columns.Add("Taste_Luxury");
+            dataTable_itemdb.Columns.Add("Taste_Toughness");
+            dataTable_itemdb.Columns.Add("Taste_Utility");
+            dataTable_itemdb.Columns.Add("Taste_Rarity");
+            dataTable_itemdb.Columns.Add("Taste_Meaning");
+            dataTable_itemdb.Columns.Add("Taste_Adult");
+            dataTable_itemdb.Columns.Add("Taste_Maniac");
+            dataTable_itemdb.Columns.Add("Taste_Anime");
+            dataTable_itemdb.Columns.Add("Taste_Sexy");
+            dataTable_itemdb.Columns.Add("File_WallMesh");
+            dataTable_itemdb.Columns.Add("Metalware_UItooltip");
+            dataTable_itemdb.Columns.Add("Enchant_UItooltip");
+            dataTable_itemdb.Columns.Add("Upgrade_UItooltip");
+            dataTable_itemdb.Columns.Add("Par_BlockUseFlag");
+            dataTable_itemdb.Columns.Add("Par_UpgradeMax");
+            dataTable_itemdb.Columns.Add("Par_GemUpgradeMax");
+            dataTable_itemdb.Columns.Add("Par_DurabilityMax");
+            dataTable_itemdb.Columns.Add("Par_Defense");
+            dataTable_itemdb.Columns.Add("Par_ProtectRate");
+            dataTable_itemdb.Columns.Add("Par_AttackMin");
+            dataTable_itemdb.Columns.Add("Par_AttackMax");
+            dataTable_itemdb.Columns.Add("Par_WAttackMin");
+            dataTable_itemdb.Columns.Add("Par_WAttackMax");
+            dataTable_itemdb.Columns.Add("Par_CriticalRate");
+            dataTable_itemdb.Columns.Add("Par_AttackBalance");
+            dataTable_itemdb.Columns.Add("Par_EffectiveRange");
+            dataTable_itemdb.Columns.Add("Par_AttackSpeed");
+            dataTable_itemdb.Columns.Add("Par_DownHitCount");
+            dataTable_itemdb.Columns.Add("Par_BasicOption");
+            dataTable_itemdb.Columns.Add("Attr_ItemEnhanceSet");
+            dataTable_itemdb.Columns.Add("Shopping_Book_Type");
+            dataTable_itemdb.Columns.Add("Food_BlockUseFlag");
+            dataTable_itemdb.Columns.Add("Food_Type");
+            dataTable_itemdb.Columns.Add("Food_Amount");
+            dataTable_itemdb.Columns.Add("Food_AmountFlag");
+            dataTable_itemdb.Columns.Add("Food_Str");
+            dataTable_itemdb.Columns.Add("Food_Int");
+            dataTable_itemdb.Columns.Add("Food_Dex");
+            dataTable_itemdb.Columns.Add("Food_Will");
+            dataTable_itemdb.Columns.Add("Food_Luck");
+            dataTable_itemdb.Columns.Add("Food_Life");
+            dataTable_itemdb.Columns.Add("Food_Mana");
+            dataTable_itemdb.Columns.Add("Food_Stamina");
+            dataTable_itemdb.Columns.Add("Food_Fatness");
+            dataTable_itemdb.Columns.Add("Food_Upper");
+            dataTable_itemdb.Columns.Add("Food_Lower");
+            dataTable_itemdb.Columns.Add("Food_Toxic");
+            dataTable_itemdb.Columns.Add("FoodEffectXML");
+            dataTable_itemdb.Columns.Add("SmartSearchFlag");
+            dataTable_itemdb.Columns.Add("AuctionSearchFlag");
+            return dataTable_itemdb;
         }
     }
 }
