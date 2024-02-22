@@ -37,7 +37,7 @@ namespace MabiDataViewer
                 string filePath = "ItemDB.china.txt";
                 ReadDataFromFile(filePath, dataTable_itemName);
                 dataGridView2.DataSource = dataTable_itemName;
-            
+                /*
                 // 使用 XElement.Load 從 XML 檔案中讀取資料
                 XElement xmlData = XElement.Load("ItemDB.xml"); // 請替換為您的 XML 檔案路徑
                 DataSet dataSet = new DataSet();
@@ -183,11 +183,13 @@ namespace MabiDataViewer
                 stopwatch.Stop();
                 TimeSpan elapsedTime = stopwatch.Elapsed;
                 label1.Text = $"ItemDB 讀取耗時 : {elapsedTime.TotalMilliseconds/1000} 秒";
+                */
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            
         }
         private void dataGridView_donate_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -398,7 +400,6 @@ namespace MabiDataViewer
             {
                 // 使用 XElement.Load 從 XML 檔案中讀取資料
                 XElement xmlData = XElement.Load("ItemDB.xml");
-                // 創建一個 DataTable 並添加列
                 DataTable dataTable_itemdb = new DataTable();
                 dataTable_itemdb.Columns.Add("ID");
                 dataTable_itemdb.Columns.Add("DB_StoreType");
@@ -489,20 +490,15 @@ namespace MabiDataViewer
                 dataTable_itemdb.Columns.Add("FoodEffectXML");
                 dataTable_itemdb.Columns.Add("SmartSearchFlag");
                 dataTable_itemdb.Columns.Add("AuctionSearchFlag");
-                // 添加其他列以匹配 XML 中的其他屬性
-                
-                // 使用 LINQ to XML 查詢 XML 資料並填充到 DataTable 中
+
                 foreach (XElement element in xmlData.Elements("Mabi_Item"))
                 {
                     DataRow row = dataTable_itemdb.NewRow();
-                    // 取得節點的所有屬性
                     foreach (XAttribute attribute in element.Attributes())
                     {
                         string attributeName = attribute.Name.LocalName;
                         string attributeValue = attribute.Value;
 
-                        // 使用 attributeName 和 attributeValue 進行相應的處理
-                        
                         if ((attribute.Name == "Text_Name1" || attribute.Name == "Text_Desc1") && attribute.Value.Contains("_LT[xml.itemdb"))
                         {
                             string result = "";
@@ -520,7 +516,6 @@ namespace MabiDataViewer
                                     {
                                         row[attributeName] = rows["Description"].ToString();
                                     }
-
                                 }
                                 else
                                 {
