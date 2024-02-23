@@ -274,6 +274,60 @@ namespace MabiDataViewer
                     _form1.checkBox_DropLock.Checked = true; _form1.checkBox_BankAccount.Checked = true;
                     break;
 
+        public bool GetActionFlag(DataGridView dt, int row)
+        {
+            switch (dt.Rows[row].Cells[9].Value.ToString())
+            {
+                case "0":
+                    foreach (Control control in _form1.groupBox_checkbox.Controls)
+                    {
+                        if (control is CheckBox checkBox)
+                        {
+                            checkBox.Checked = true;
+                        }
+                    }
+                    _form1.checkBox_DropLock.Checked = false; _form1.checkBox_BankCharacter.Checked = false; _form1.checkBox_Destroy.Checked = false;
+                    break;
+                case "1":
+                    _form1.checkBox_DropLock.Checked = true; _form1.checkBox_Mail.Checked = true;
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    _form1.checkBox_DropLock.Checked = true; _form1.checkBox_BankAccount.Checked = true;
+                    break;
+                case "4":
+                    _form1.checkBox_Trade.Checked = true; _form1.checkBox_DropFree.Checked = true;
+                    break;
+                case "5":
+                    _form1.checkBox_DropLock.Checked = true; _form1.checkBox_BankCharacter.Checked = true;
+                    break;
+                case "6":
+                case "7":
+                case "8":
+                    break;
+                case "9":
+                    _form1.checkBox_DropLock.Checked = true;
+                    break;
+                case "10":
+                    _form1.checkBox_Destroy.Checked = true; _form1.checkBox_BankCharacter.Checked = true;
+                    break;
+                case "12":
+                    _form1.checkBox_Destroy.Checked = true; _form1.checkBox_BankAccount.Checked = true; _form1.checkBox_Pet.Checked = true;
+                    break;
+                case "13":
+                    _form1.checkBox_BankCharacter.Checked = true;
+                    break;
+                case "14":
+                    _form1.checkBox_TradeLimit.Checked = true; _form1.checkBox_DropLock.Checked = true; _form1.checkBox_BankAccount.Checked = true;
+                    break;
+                case "16":
+                    _form1.checkBox_DropLock.Checked = true;
+                    break;
+                case "17":
+                    _form1.checkBox_DropLock.Checked = true; _form1.checkBox_BankAccount.Checked = true;
+                    break;
+
             }
             //例外處理
             if (dt.Rows[row].Cells[1].Value.ToString().Contains("destroyable"))
