@@ -33,23 +33,26 @@ namespace MabiDataViewer
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_ItemDB = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label_ItemSize = new System.Windows.Forms.Label();
             this.groupBox_ItemSelect = new System.Windows.Forms.GroupBox();
             this.button_ItemReset = new System.Windows.Forms.Button();
-            this.button_ItemSelect = new System.Windows.Forms.Button();
+            this.button_ItemSearch = new System.Windows.Forms.Button();
             this.radioButton_SearchName = new System.Windows.Forms.RadioButton();
             this.radioButton_SerachID = new System.Windows.Forms.RadioButton();
             this.label_ItemKeyword = new System.Windows.Forms.Label();
-            this.textBox_ItemSerach = new System.Windows.Forms.TextBox();
+            this.textBox_ItemKeyword = new System.Windows.Forms.TextBox();
             this.label_Bundle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_XML = new System.Windows.Forms.Label();
             this.label_Category = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox_checkbox = new System.Windows.Forms.GroupBox();
+            this.groupBox_ActionFlag = new System.Windows.Forms.GroupBox();
             this.checkBox_Mail = new System.Windows.Forms.CheckBox();
             this.checkBox_dyeable = new System.Windows.Forms.CheckBox();
             this.checkBox_TradeLimit = new System.Windows.Forms.CheckBox();
@@ -66,22 +69,49 @@ namespace MabiDataViewer
             this.label_ItemID = new System.Windows.Forms.Label();
             this.textBox_ItemXML = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox_OptionSetDesc = new System.Windows.Forms.GroupBox();
+            this.textBox_OptionSetBlock = new System.Windows.Forms.TextBox();
+            this.label_OptionSetBlock = new System.Windows.Forms.Label();
+            this.textBox_OptionSetAllow = new System.Windows.Forms.TextBox();
+            this.label_OptionSetAllow = new System.Windows.Forms.Label();
+            this.label_OptionSetDesc = new System.Windows.Forms.Label();
+            this.label_OptionSetID = new System.Windows.Forms.Label();
+            this.textBox_OptionSetDesc = new System.Windows.Forms.TextBox();
+            this.label_OptionSetFee = new System.Windows.Forms.Label();
+            this.label_OptionSetName = new System.Windows.Forms.Label();
+            this.label_OptionSetUsage = new System.Windows.Forms.Label();
+            this.label_OptionSetLevel = new System.Windows.Forms.Label();
+            this.label_OptionSetIgnore = new System.Windows.Forms.Label();
+            this.groupBox_OptionSetSelect = new System.Windows.Forms.GroupBox();
+            this.radioButton_OptionSetName = new System.Windows.Forms.RadioButton();
+            this.button_OptionSetReset = new System.Windows.Forms.Button();
+            this.button_OptionSetSearch = new System.Windows.Forms.Button();
+            this.radioButton_OptionSetDesc = new System.Windows.Forms.RadioButton();
+            this.radioButton_OptionSetID = new System.Windows.Forms.RadioButton();
+            this.label_OptionSetKeyword = new System.Windows.Forms.Label();
+            this.textBox_OptionSetKeyword = new System.Windows.Forms.TextBox();
+            this.dataGridView_OptionSet = new System.Windows.Forms.DataGridView();
             this.SerachTip = new System.Windows.Forms.ToolTip(this.components);
             this.dataSet1 = new System.Data.DataSet();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ItemDB)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox_ItemSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox_checkbox.SuspendLayout();
+            this.groupBox_ActionFlag.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox_OptionSetDesc.SuspendLayout();
+            this.groupBox_OptionSetSelect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_OptionSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridView_ItemDB
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView_ItemDB.AllowUserToAddRows = false;
+            this.dataGridView_ItemDB.AllowUserToDeleteRows = false;
+            this.dataGridView_ItemDB.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -89,8 +119,8 @@ namespace MabiDataViewer
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ItemDB.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView_ItemDB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -98,14 +128,14 @@ namespace MabiDataViewer
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1060, 914);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_donate_CellClick);
+            this.dataGridView_ItemDB.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView_ItemDB.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView_ItemDB.Name = "dataGridView_ItemDB";
+            this.dataGridView_ItemDB.ReadOnly = true;
+            this.dataGridView_ItemDB.RowTemplate.Height = 24;
+            this.dataGridView_ItemDB.Size = new System.Drawing.Size(1060, 914);
+            this.dataGridView_ItemDB.TabIndex = 0;
+            this.dataGridView_ItemDB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ItemDB_CellClick);
             // 
             // tabControl1
             // 
@@ -119,19 +149,20 @@ namespace MabiDataViewer
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label_ItemSize);
             this.tabPage1.Controls.Add(this.groupBox_ItemSelect);
             this.tabPage1.Controls.Add(this.label_Bundle);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.label_XML);
             this.tabPage1.Controls.Add(this.label_Category);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.groupBox_checkbox);
+            this.tabPage1.Controls.Add(this.groupBox_ActionFlag);
             this.tabPage1.Controls.Add(this.textBox_ItemDesc);
             this.tabPage1.Controls.Add(this.label_ItemName);
             this.tabPage1.Controls.Add(this.textBox_ItemCategory);
             this.tabPage1.Controls.Add(this.label_ItemID);
             this.tabPage1.Controls.Add(this.textBox_ItemXML);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.dataGridView_ItemDB);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -140,16 +171,26 @@ namespace MabiDataViewer
             this.tabPage1.Text = "ItemDB";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label_ItemSize
+            // 
+            this.label_ItemSize.AutoSize = true;
+            this.label_ItemSize.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_ItemSize.Location = new System.Drawing.Point(1062, 268);
+            this.label_ItemSize.Name = "label_ItemSize";
+            this.label_ItemSize.Size = new System.Drawing.Size(78, 21);
+            this.label_ItemSize.TabIndex = 30;
+            this.label_ItemSize.Text = "道具大小:";
+            // 
             // groupBox_ItemSelect
             // 
             this.groupBox_ItemSelect.Controls.Add(this.button_ItemReset);
-            this.groupBox_ItemSelect.Controls.Add(this.button_ItemSelect);
+            this.groupBox_ItemSelect.Controls.Add(this.button_ItemSearch);
             this.groupBox_ItemSelect.Controls.Add(this.radioButton_SearchName);
             this.groupBox_ItemSelect.Controls.Add(this.radioButton_SerachID);
             this.groupBox_ItemSelect.Controls.Add(this.label_ItemKeyword);
-            this.groupBox_ItemSelect.Controls.Add(this.textBox_ItemSerach);
+            this.groupBox_ItemSelect.Controls.Add(this.textBox_ItemKeyword);
             this.groupBox_ItemSelect.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox_ItemSelect.Location = new System.Drawing.Point(1066, 3);
+            this.groupBox_ItemSelect.Location = new System.Drawing.Point(1066, 2);
             this.groupBox_ItemSelect.Name = "groupBox_ItemSelect";
             this.groupBox_ItemSelect.Size = new System.Drawing.Size(375, 85);
             this.groupBox_ItemSelect.TabIndex = 29;
@@ -167,16 +208,16 @@ namespace MabiDataViewer
             this.button_ItemReset.UseVisualStyleBackColor = true;
             this.button_ItemReset.Click += new System.EventHandler(this.button_ItemReset_Click);
             // 
-            // button_ItemSelect
+            // button_ItemSearch
             // 
-            this.button_ItemSelect.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button_ItemSelect.Location = new System.Drawing.Point(194, 19);
-            this.button_ItemSelect.Name = "button_ItemSelect";
-            this.button_ItemSelect.Size = new System.Drawing.Size(82, 31);
-            this.button_ItemSelect.TabIndex = 30;
-            this.button_ItemSelect.Text = "開始搜尋";
-            this.button_ItemSelect.UseVisualStyleBackColor = true;
-            this.button_ItemSelect.Click += new System.EventHandler(this.button_ItemSelect_Click);
+            this.button_ItemSearch.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_ItemSearch.Location = new System.Drawing.Point(194, 19);
+            this.button_ItemSearch.Name = "button_ItemSearch";
+            this.button_ItemSearch.Size = new System.Drawing.Size(82, 31);
+            this.button_ItemSearch.TabIndex = 30;
+            this.button_ItemSearch.Text = "開始搜尋";
+            this.button_ItemSearch.UseVisualStyleBackColor = true;
+            this.button_ItemSearch.Click += new System.EventHandler(this.button_ItemSearch_Click);
             // 
             // radioButton_SearchName
             // 
@@ -210,14 +251,14 @@ namespace MabiDataViewer
             this.label_ItemKeyword.TabIndex = 30;
             this.label_ItemKeyword.Text = "關鍵字";
             // 
-            // textBox_ItemSerach
+            // textBox_ItemKeyword
             // 
-            this.textBox_ItemSerach.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox_ItemSerach.Location = new System.Drawing.Point(64, 20);
-            this.textBox_ItemSerach.Name = "textBox_ItemSerach";
-            this.textBox_ItemSerach.Size = new System.Drawing.Size(122, 29);
-            this.textBox_ItemSerach.TabIndex = 30;
-            this.SerachTip.SetToolTip(this.textBox_ItemSerach, "輸入道具編號或名稱");
+            this.textBox_ItemKeyword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox_ItemKeyword.Location = new System.Drawing.Point(64, 20);
+            this.textBox_ItemKeyword.Name = "textBox_ItemKeyword";
+            this.textBox_ItemKeyword.Size = new System.Drawing.Size(122, 29);
+            this.textBox_ItemKeyword.TabIndex = 30;
+            this.SerachTip.SetToolTip(this.textBox_ItemKeyword, "輸入道具編號或名稱");
             // 
             // label_Bundle
             // 
@@ -231,7 +272,7 @@ namespace MabiDataViewer
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(1164, 439);
+            this.pictureBox1.Location = new System.Drawing.Point(1162, 459);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(192, 192);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -265,29 +306,28 @@ namespace MabiDataViewer
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(1062, 892);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 20);
+            this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 24;
-            this.label1.Text = "ItemDB 讀取耗時:";
             // 
-            // groupBox_checkbox
+            // groupBox_ActionFlag
             // 
-            this.groupBox_checkbox.Controls.Add(this.checkBox_Mail);
-            this.groupBox_checkbox.Controls.Add(this.checkBox_dyeable);
-            this.groupBox_checkbox.Controls.Add(this.checkBox_TradeLimit);
-            this.groupBox_checkbox.Controls.Add(this.checkBox_Trade);
-            this.groupBox_checkbox.Controls.Add(this.checkBox_BankCharacter);
-            this.groupBox_checkbox.Controls.Add(this.checkBox_DropFree);
-            this.groupBox_checkbox.Controls.Add(this.checkBox_Pet);
-            this.groupBox_checkbox.Controls.Add(this.checkBox_BankAccount);
-            this.groupBox_checkbox.Controls.Add(this.checkBox_DropLock);
-            this.groupBox_checkbox.Controls.Add(this.checkBox_Destroy);
-            this.groupBox_checkbox.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox_checkbox.Location = new System.Drawing.Point(1066, 264);
-            this.groupBox_checkbox.Name = "groupBox_checkbox";
-            this.groupBox_checkbox.Size = new System.Drawing.Size(375, 152);
-            this.groupBox_checkbox.TabIndex = 23;
-            this.groupBox_checkbox.TabStop = false;
-            this.groupBox_checkbox.Text = "Action Flag: ";
+            this.groupBox_ActionFlag.Controls.Add(this.checkBox_Mail);
+            this.groupBox_ActionFlag.Controls.Add(this.checkBox_dyeable);
+            this.groupBox_ActionFlag.Controls.Add(this.checkBox_TradeLimit);
+            this.groupBox_ActionFlag.Controls.Add(this.checkBox_Trade);
+            this.groupBox_ActionFlag.Controls.Add(this.checkBox_BankCharacter);
+            this.groupBox_ActionFlag.Controls.Add(this.checkBox_DropFree);
+            this.groupBox_ActionFlag.Controls.Add(this.checkBox_Pet);
+            this.groupBox_ActionFlag.Controls.Add(this.checkBox_BankAccount);
+            this.groupBox_ActionFlag.Controls.Add(this.checkBox_DropLock);
+            this.groupBox_ActionFlag.Controls.Add(this.checkBox_Destroy);
+            this.groupBox_ActionFlag.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.groupBox_ActionFlag.Location = new System.Drawing.Point(1066, 302);
+            this.groupBox_ActionFlag.Name = "groupBox_ActionFlag";
+            this.groupBox_ActionFlag.Size = new System.Drawing.Size(375, 152);
+            this.groupBox_ActionFlag.TabIndex = 23;
+            this.groupBox_ActionFlag.TabStop = false;
+            this.groupBox_ActionFlag.Text = "Action Flag: ";
             // 
             // checkBox_Mail
             // 
@@ -427,6 +467,7 @@ namespace MabiDataViewer
             this.textBox_ItemDesc.Multiline = true;
             this.textBox_ItemDesc.Name = "textBox_ItemDesc";
             this.textBox_ItemDesc.ReadOnly = true;
+            this.textBox_ItemDesc.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox_ItemDesc.Size = new System.Drawing.Size(375, 65);
             this.textBox_ItemDesc.TabIndex = 12;
             // 
@@ -434,7 +475,7 @@ namespace MabiDataViewer
             // 
             this.label_ItemName.AutoSize = true;
             this.label_ItemName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_ItemName.Location = new System.Drawing.Point(1062, 127);
+            this.label_ItemName.Location = new System.Drawing.Point(1062, 130);
             this.label_ItemName.Name = "label_ItemName";
             this.label_ItemName.Size = new System.Drawing.Size(78, 21);
             this.label_ItemName.TabIndex = 6;
@@ -447,6 +488,7 @@ namespace MabiDataViewer
             this.textBox_ItemCategory.Multiline = true;
             this.textBox_ItemCategory.Name = "textBox_ItemCategory";
             this.textBox_ItemCategory.ReadOnly = true;
+            this.textBox_ItemCategory.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox_ItemCategory.Size = new System.Drawing.Size(375, 65);
             this.textBox_ItemCategory.TabIndex = 5;
             // 
@@ -467,11 +509,16 @@ namespace MabiDataViewer
             this.textBox_ItemXML.Multiline = true;
             this.textBox_ItemXML.Name = "textBox_ItemXML";
             this.textBox_ItemXML.ReadOnly = true;
+            this.textBox_ItemXML.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox_ItemXML.Size = new System.Drawing.Size(375, 104);
             this.textBox_ItemXML.TabIndex = 2;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.groupBox_OptionSetDesc);
+            this.tabPage2.Controls.Add(this.groupBox_OptionSetSelect);
+            this.tabPage2.Controls.Add(this.dataGridView_OptionSet);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -479,6 +526,280 @@ namespace MabiDataViewer
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "OptionSet";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Location = new System.Drawing.Point(1062, 892);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 20);
+            this.label2.TabIndex = 43;
+            // 
+            // groupBox_OptionSetDesc
+            // 
+            this.groupBox_OptionSetDesc.Controls.Add(this.textBox_OptionSetBlock);
+            this.groupBox_OptionSetDesc.Controls.Add(this.label_OptionSetBlock);
+            this.groupBox_OptionSetDesc.Controls.Add(this.textBox_OptionSetAllow);
+            this.groupBox_OptionSetDesc.Controls.Add(this.label_OptionSetAllow);
+            this.groupBox_OptionSetDesc.Controls.Add(this.label_OptionSetDesc);
+            this.groupBox_OptionSetDesc.Controls.Add(this.label_OptionSetID);
+            this.groupBox_OptionSetDesc.Controls.Add(this.textBox_OptionSetDesc);
+            this.groupBox_OptionSetDesc.Controls.Add(this.label_OptionSetFee);
+            this.groupBox_OptionSetDesc.Controls.Add(this.label_OptionSetName);
+            this.groupBox_OptionSetDesc.Controls.Add(this.label_OptionSetUsage);
+            this.groupBox_OptionSetDesc.Controls.Add(this.label_OptionSetLevel);
+            this.groupBox_OptionSetDesc.Controls.Add(this.label_OptionSetIgnore);
+            this.groupBox_OptionSetDesc.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.groupBox_OptionSetDesc.Location = new System.Drawing.Point(1066, 93);
+            this.groupBox_OptionSetDesc.Name = "groupBox_OptionSetDesc";
+            this.groupBox_OptionSetDesc.Size = new System.Drawing.Size(375, 798);
+            this.groupBox_OptionSetDesc.TabIndex = 38;
+            this.groupBox_OptionSetDesc.TabStop = false;
+            this.groupBox_OptionSetDesc.Text = "詳細賦予資料";
+            // 
+            // textBox_OptionSetBlock
+            // 
+            this.textBox_OptionSetBlock.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox_OptionSetBlock.Location = new System.Drawing.Point(9, 645);
+            this.textBox_OptionSetBlock.Multiline = true;
+            this.textBox_OptionSetBlock.Name = "textBox_OptionSetBlock";
+            this.textBox_OptionSetBlock.ReadOnly = true;
+            this.textBox_OptionSetBlock.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox_OptionSetBlock.Size = new System.Drawing.Size(355, 146);
+            this.textBox_OptionSetBlock.TabIndex = 42;
+            // 
+            // label_OptionSetBlock
+            // 
+            this.label_OptionSetBlock.AutoSize = true;
+            this.label_OptionSetBlock.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetBlock.Location = new System.Drawing.Point(6, 610);
+            this.label_OptionSetBlock.Name = "label_OptionSetBlock";
+            this.label_OptionSetBlock.Size = new System.Drawing.Size(142, 21);
+            this.label_OptionSetBlock.TabIndex = 41;
+            this.label_OptionSetBlock.Text = "不可賦予裝備類別:";
+            // 
+            // textBox_OptionSetAllow
+            // 
+            this.textBox_OptionSetAllow.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox_OptionSetAllow.Location = new System.Drawing.Point(9, 530);
+            this.textBox_OptionSetAllow.Multiline = true;
+            this.textBox_OptionSetAllow.Name = "textBox_OptionSetAllow";
+            this.textBox_OptionSetAllow.ReadOnly = true;
+            this.textBox_OptionSetAllow.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox_OptionSetAllow.Size = new System.Drawing.Size(355, 66);
+            this.textBox_OptionSetAllow.TabIndex = 40;
+            // 
+            // label_OptionSetAllow
+            // 
+            this.label_OptionSetAllow.AutoSize = true;
+            this.label_OptionSetAllow.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetAllow.Location = new System.Drawing.Point(6, 495);
+            this.label_OptionSetAllow.Name = "label_OptionSetAllow";
+            this.label_OptionSetAllow.Size = new System.Drawing.Size(126, 21);
+            this.label_OptionSetAllow.TabIndex = 39;
+            this.label_OptionSetAllow.Text = "可賦予裝備類別:";
+            // 
+            // label_OptionSetDesc
+            // 
+            this.label_OptionSetDesc.AutoSize = true;
+            this.label_OptionSetDesc.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetDesc.Location = new System.Drawing.Point(6, 240);
+            this.label_OptionSetDesc.Name = "label_OptionSetDesc";
+            this.label_OptionSetDesc.Size = new System.Drawing.Size(78, 21);
+            this.label_OptionSetDesc.TabIndex = 38;
+            this.label_OptionSetDesc.Text = "賦予內容:";
+            // 
+            // label_OptionSetID
+            // 
+            this.label_OptionSetID.AutoSize = true;
+            this.label_OptionSetID.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetID.Location = new System.Drawing.Point(6, 30);
+            this.label_OptionSetID.Name = "label_OptionSetID";
+            this.label_OptionSetID.Size = new System.Drawing.Size(78, 21);
+            this.label_OptionSetID.TabIndex = 31;
+            this.label_OptionSetID.Text = "賦予編號:";
+            // 
+            // textBox_OptionSetDesc
+            // 
+            this.textBox_OptionSetDesc.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox_OptionSetDesc.Location = new System.Drawing.Point(9, 275);
+            this.textBox_OptionSetDesc.Multiline = true;
+            this.textBox_OptionSetDesc.Name = "textBox_OptionSetDesc";
+            this.textBox_OptionSetDesc.ReadOnly = true;
+            this.textBox_OptionSetDesc.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox_OptionSetDesc.Size = new System.Drawing.Size(355, 206);
+            this.textBox_OptionSetDesc.TabIndex = 33;
+            // 
+            // label_OptionSetFee
+            // 
+            this.label_OptionSetFee.AutoSize = true;
+            this.label_OptionSetFee.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetFee.Location = new System.Drawing.Point(6, 205);
+            this.label_OptionSetFee.Name = "label_OptionSetFee";
+            this.label_OptionSetFee.Size = new System.Drawing.Size(78, 21);
+            this.label_OptionSetFee.TabIndex = 37;
+            this.label_OptionSetFee.Text = "修理倍率:";
+            // 
+            // label_OptionSetName
+            // 
+            this.label_OptionSetName.AutoSize = true;
+            this.label_OptionSetName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetName.Location = new System.Drawing.Point(6, 65);
+            this.label_OptionSetName.Name = "label_OptionSetName";
+            this.label_OptionSetName.Size = new System.Drawing.Size(78, 21);
+            this.label_OptionSetName.TabIndex = 32;
+            this.label_OptionSetName.Text = "賦予名稱:";
+            // 
+            // label_OptionSetUsage
+            // 
+            this.label_OptionSetUsage.AutoSize = true;
+            this.label_OptionSetUsage.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetUsage.Location = new System.Drawing.Point(6, 135);
+            this.label_OptionSetUsage.Name = "label_OptionSetUsage";
+            this.label_OptionSetUsage.Size = new System.Drawing.Size(78, 21);
+            this.label_OptionSetUsage.TabIndex = 36;
+            this.label_OptionSetUsage.Text = "賦予詞綴:";
+            // 
+            // label_OptionSetLevel
+            // 
+            this.label_OptionSetLevel.AutoSize = true;
+            this.label_OptionSetLevel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetLevel.Location = new System.Drawing.Point(6, 100);
+            this.label_OptionSetLevel.Name = "label_OptionSetLevel";
+            this.label_OptionSetLevel.Size = new System.Drawing.Size(78, 21);
+            this.label_OptionSetLevel.TabIndex = 34;
+            this.label_OptionSetLevel.Text = "賦予等級:";
+            // 
+            // label_OptionSetIgnore
+            // 
+            this.label_OptionSetIgnore.AutoSize = true;
+            this.label_OptionSetIgnore.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetIgnore.Location = new System.Drawing.Point(6, 170);
+            this.label_OptionSetIgnore.Name = "label_OptionSetIgnore";
+            this.label_OptionSetIgnore.Size = new System.Drawing.Size(78, 21);
+            this.label_OptionSetIgnore.TabIndex = 35;
+            this.label_OptionSetIgnore.Text = "無視等級:";
+            // 
+            // groupBox_OptionSetSelect
+            // 
+            this.groupBox_OptionSetSelect.Controls.Add(this.radioButton_OptionSetName);
+            this.groupBox_OptionSetSelect.Controls.Add(this.button_OptionSetReset);
+            this.groupBox_OptionSetSelect.Controls.Add(this.button_OptionSetSearch);
+            this.groupBox_OptionSetSelect.Controls.Add(this.radioButton_OptionSetDesc);
+            this.groupBox_OptionSetSelect.Controls.Add(this.radioButton_OptionSetID);
+            this.groupBox_OptionSetSelect.Controls.Add(this.label_OptionSetKeyword);
+            this.groupBox_OptionSetSelect.Controls.Add(this.textBox_OptionSetKeyword);
+            this.groupBox_OptionSetSelect.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.groupBox_OptionSetSelect.Location = new System.Drawing.Point(1066, 2);
+            this.groupBox_OptionSetSelect.Name = "groupBox_OptionSetSelect";
+            this.groupBox_OptionSetSelect.Size = new System.Drawing.Size(375, 85);
+            this.groupBox_OptionSetSelect.TabIndex = 30;
+            this.groupBox_OptionSetSelect.TabStop = false;
+            this.groupBox_OptionSetSelect.Text = "搜尋賦予";
+            // 
+            // radioButton_OptionSetName
+            // 
+            this.radioButton_OptionSetName.AutoSize = true;
+            this.radioButton_OptionSetName.Location = new System.Drawing.Point(139, 54);
+            this.radioButton_OptionSetName.Name = "radioButton_OptionSetName";
+            this.radioButton_OptionSetName.Size = new System.Drawing.Size(92, 25);
+            this.radioButton_OptionSetName.TabIndex = 34;
+            this.radioButton_OptionSetName.Text = "賦予名稱";
+            this.radioButton_OptionSetName.UseVisualStyleBackColor = true;
+            // 
+            // button_OptionSetReset
+            // 
+            this.button_OptionSetReset.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_OptionSetReset.Location = new System.Drawing.Point(282, 19);
+            this.button_OptionSetReset.Name = "button_OptionSetReset";
+            this.button_OptionSetReset.Size = new System.Drawing.Size(82, 31);
+            this.button_OptionSetReset.TabIndex = 33;
+            this.button_OptionSetReset.Text = "重置結果";
+            this.button_OptionSetReset.UseVisualStyleBackColor = true;
+            this.button_OptionSetReset.Click += new System.EventHandler(this.button_OptionSetReset_Click);
+            // 
+            // button_OptionSetSearch
+            // 
+            this.button_OptionSetSearch.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_OptionSetSearch.Location = new System.Drawing.Point(194, 19);
+            this.button_OptionSetSearch.Name = "button_OptionSetSearch";
+            this.button_OptionSetSearch.Size = new System.Drawing.Size(82, 31);
+            this.button_OptionSetSearch.TabIndex = 30;
+            this.button_OptionSetSearch.Text = "開始搜尋";
+            this.button_OptionSetSearch.UseVisualStyleBackColor = true;
+            this.button_OptionSetSearch.Click += new System.EventHandler(this.button_OptionSetSearch_Click);
+            // 
+            // radioButton_OptionSetDesc
+            // 
+            this.radioButton_OptionSetDesc.AutoSize = true;
+            this.radioButton_OptionSetDesc.Location = new System.Drawing.Point(279, 54);
+            this.radioButton_OptionSetDesc.Name = "radioButton_OptionSetDesc";
+            this.radioButton_OptionSetDesc.Size = new System.Drawing.Size(92, 25);
+            this.radioButton_OptionSetDesc.TabIndex = 32;
+            this.radioButton_OptionSetDesc.Text = "賦予內容";
+            this.radioButton_OptionSetDesc.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_OptionSetID
+            // 
+            this.radioButton_OptionSetID.AutoSize = true;
+            this.radioButton_OptionSetID.Checked = true;
+            this.radioButton_OptionSetID.Location = new System.Drawing.Point(10, 54);
+            this.radioButton_OptionSetID.Name = "radioButton_OptionSetID";
+            this.radioButton_OptionSetID.Size = new System.Drawing.Size(77, 25);
+            this.radioButton_OptionSetID.TabIndex = 31;
+            this.radioButton_OptionSetID.TabStop = true;
+            this.radioButton_OptionSetID.Text = "賦予ID";
+            this.radioButton_OptionSetID.UseVisualStyleBackColor = true;
+            // 
+            // label_OptionSetKeyword
+            // 
+            this.label_OptionSetKeyword.AutoSize = true;
+            this.label_OptionSetKeyword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetKeyword.Location = new System.Drawing.Point(6, 25);
+            this.label_OptionSetKeyword.Name = "label_OptionSetKeyword";
+            this.label_OptionSetKeyword.Size = new System.Drawing.Size(58, 21);
+            this.label_OptionSetKeyword.TabIndex = 30;
+            this.label_OptionSetKeyword.Text = "關鍵字";
+            // 
+            // textBox_OptionSetKeyword
+            // 
+            this.textBox_OptionSetKeyword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox_OptionSetKeyword.Location = new System.Drawing.Point(64, 20);
+            this.textBox_OptionSetKeyword.Name = "textBox_OptionSetKeyword";
+            this.textBox_OptionSetKeyword.Size = new System.Drawing.Size(122, 29);
+            this.textBox_OptionSetKeyword.TabIndex = 30;
+            this.SerachTip.SetToolTip(this.textBox_OptionSetKeyword, "輸入道具編號或名稱");
+            // 
+            // dataGridView_OptionSet
+            // 
+            this.dataGridView_OptionSet.AllowUserToAddRows = false;
+            this.dataGridView_OptionSet.AllowUserToDeleteRows = false;
+            this.dataGridView_OptionSet.AllowUserToResizeRows = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_OptionSet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView_OptionSet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_OptionSet.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView_OptionSet.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView_OptionSet.Name = "dataGridView_OptionSet";
+            this.dataGridView_OptionSet.ReadOnly = true;
+            this.dataGridView_OptionSet.RowTemplate.Height = 24;
+            this.dataGridView_OptionSet.Size = new System.Drawing.Size(1060, 914);
+            this.dataGridView_OptionSet.TabIndex = 1;
+            this.dataGridView_OptionSet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_OptionSet_CellClick);
             // 
             // dataSet1
             // 
@@ -497,15 +818,22 @@ namespace MabiDataViewer
             this.Name = "Form1";
             this.Text = "MabiDataViewer";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ItemDB)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox_ItemSelect.ResumeLayout(false);
             this.groupBox_ItemSelect.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox_checkbox.ResumeLayout(false);
-            this.groupBox_checkbox.PerformLayout();
+            this.groupBox_ActionFlag.ResumeLayout(false);
+            this.groupBox_ActionFlag.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.groupBox_OptionSetDesc.ResumeLayout(false);
+            this.groupBox_OptionSetDesc.PerformLayout();
+            this.groupBox_OptionSetSelect.ResumeLayout(false);
+            this.groupBox_OptionSetSelect.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_OptionSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
@@ -513,7 +841,7 @@ namespace MabiDataViewer
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_ItemDB;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -530,7 +858,7 @@ namespace MabiDataViewer
         public System.Windows.Forms.CheckBox checkBox_Destroy;
         public System.Windows.Forms.CheckBox checkBox_BankAccount;
         public System.Windows.Forms.CheckBox checkBox_DropFree;
-        public System.Windows.Forms.GroupBox groupBox_checkbox;
+        public System.Windows.Forms.GroupBox groupBox_ActionFlag;
         public System.Windows.Forms.CheckBox checkBox_TradeLimit;
         public System.Windows.Forms.CheckBox checkBox_Mail;
         public System.Windows.Forms.CheckBox checkBox_dyeable;
@@ -541,12 +869,36 @@ namespace MabiDataViewer
         private System.Windows.Forms.Label label_Bundle;
         private System.Windows.Forms.GroupBox groupBox_ItemSelect;
         private System.Windows.Forms.Label label_ItemKeyword;
-        private System.Windows.Forms.TextBox textBox_ItemSerach;
-        private System.Windows.Forms.RadioButton radioButton_SearchName;
-        private System.Windows.Forms.RadioButton radioButton_SerachID;
+        private System.Windows.Forms.TextBox textBox_ItemKeyword;
+        public System.Windows.Forms.RadioButton radioButton_SearchName;
+        public System.Windows.Forms.RadioButton radioButton_SerachID;
         private System.Windows.Forms.Button button_ItemReset;
-        private System.Windows.Forms.Button button_ItemSelect;
+        private System.Windows.Forms.Button button_ItemSearch;
         private System.Data.DataSet dataSet1;
+        private System.Windows.Forms.DataGridView dataGridView_OptionSet;
+        private System.Windows.Forms.GroupBox groupBox_OptionSetSelect;
+        private System.Windows.Forms.Button button_OptionSetReset;
+        private System.Windows.Forms.Button button_OptionSetSearch;
+        public System.Windows.Forms.RadioButton radioButton_OptionSetDesc;
+        public System.Windows.Forms.RadioButton radioButton_OptionSetID;
+        private System.Windows.Forms.Label label_OptionSetKeyword;
+        private System.Windows.Forms.TextBox textBox_OptionSetKeyword;
+        public System.Windows.Forms.RadioButton radioButton_OptionSetName;
+        private System.Windows.Forms.TextBox textBox_OptionSetDesc;
+        private System.Windows.Forms.Label label_OptionSetName;
+        private System.Windows.Forms.Label label_OptionSetID;
+        private System.Windows.Forms.Label label_OptionSetIgnore;
+        private System.Windows.Forms.Label label_OptionSetLevel;
+        private System.Windows.Forms.GroupBox groupBox_OptionSetDesc;
+        private System.Windows.Forms.Label label_OptionSetFee;
+        private System.Windows.Forms.Label label_OptionSetUsage;
+        private System.Windows.Forms.Label label_OptionSetDesc;
+        private System.Windows.Forms.Label label_ItemSize;
+        private System.Windows.Forms.TextBox textBox_OptionSetAllow;
+        private System.Windows.Forms.Label label_OptionSetAllow;
+        private System.Windows.Forms.TextBox textBox_OptionSetBlock;
+        private System.Windows.Forms.Label label_OptionSetBlock;
+        private System.Windows.Forms.Label label2;
     }
 }
 
