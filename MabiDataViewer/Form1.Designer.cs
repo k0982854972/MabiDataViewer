@@ -66,8 +66,8 @@ namespace MabiDataViewer
             this.label_ItemID = new System.Windows.Forms.Label();
             this.textBox_ItemXML = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataSet1 = new System.Data.DataSet();
             this.SerachTip = new System.Windows.Forms.ToolTip(this.components);
+            this.dataSet1 = new System.Data.DataSet();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -79,6 +79,9 @@ namespace MabiDataViewer
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -474,7 +477,7 @@ namespace MabiDataViewer
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1446, 914);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "ItemLocal";
+            this.tabPage2.Text = "OptionSet";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // dataSet1
@@ -518,7 +521,6 @@ namespace MabiDataViewer
         private System.Windows.Forms.Label label_ItemID;
         private System.Windows.Forms.TextBox textBox_ItemCategory;
         private System.Windows.Forms.Label label_ItemName;
-        private System.Data.DataSet dataSet1;
         private System.Windows.Forms.ToolTip SerachTip;
         private System.Windows.Forms.TextBox textBox_ItemDesc;
         private System.Windows.Forms.CheckBox checkBox_Trade;
@@ -544,6 +546,7 @@ namespace MabiDataViewer
         private System.Windows.Forms.RadioButton radioButton_SerachID;
         private System.Windows.Forms.Button button_ItemReset;
         private System.Windows.Forms.Button button_ItemSelect;
+        private System.Data.DataSet dataSet1;
     }
 }
 
