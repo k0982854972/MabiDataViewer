@@ -10,6 +10,7 @@ namespace MabiDataViewer
     {
         private DataTable dataTable_itemDB, dataTable_ItemString;
         private DataSet dataSet_ItemDB = new DataSet(), dataSet_ItemString = new DataSet();
+        private ItemDB _itemDB;
 
         public Form1()
         {
@@ -22,6 +23,7 @@ namespace MabiDataViewer
             {
                 radioButton_SerachID.Checked = radioButton_SearchName.Checked ? false : radioButton_SerachID.Checked;
             };
+            _itemDB = new ItemDB(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -30,9 +32,9 @@ namespace MabiDataViewer
             try
             {
                 //將ItemString資料存入dataSet_ItemString
-                dataSet_ItemString.Tables.Add(ItemDB.GetItemStringName(this.dataTable_ItemString));
+                dataSet_ItemString.Tables.Add(_itemDB.GetItemStringName(this.dataTable_ItemString));
                 //將ItemDB資料存入dataSet_ItemDB
-                dataSet_ItemDB.Tables.Add(ItemDB.GetItemDB(dataTable_itemDB, dataSet_ItemString));
+                dataSet_ItemDB.Tables.Add(_itemDB.GetItemDB(dataTable_itemDB, dataSet_ItemString));
 
                 dataGridView1.DataSource = dataSet_ItemDB.Tables[0];
                 dataGridView1.Columns[1].Visible = false;
@@ -65,9 +67,9 @@ namespace MabiDataViewer
                 label_ItemName.Text = "道具名稱: " + dt.Rows[row].Cells[4].Value.ToString();
                 label_Bundle.Text = "最大堆疊: " + dt.Rows[row].Cells[6].Value.ToString();
                 groupBox_checkbox.Text = "Action Flag: " + dt.Rows[row].Cells[9].Value.ToString();
-                Update_checkbox(dt, row, col);
-                pictureBox1.Image = ItemDB.GetItemPicture(dt.Rows[row].Cells[0].Value.ToString());
-                //ItemDB.GetActionFlag(this.Controls, dt, row);
+                //Update_checkbox(dt, row, col);
+                pictureBox1.Image = _itemDB.GetItemPicture(dt.Rows[row].Cells[0].Value.ToString());
+                _itemDB.GetActionFlag(dt, row);
             }
         }
         private bool Update_checkbox(DataGridView dt, int row, int col)
@@ -165,7 +167,7 @@ namespace MabiDataViewer
             {
                 if (!string.IsNullOrEmpty(textBox_ItemSerach.Text))
                 {
-                    dataGridView1.DataSource = ItemDB.GetItemFilteredSerach(textBox_ItemSerach.Text, dataSet_ItemDB, radioButton_SerachID);
+                    dataGridView1.DataSource = _itemDB.GetItemFilteredSerach(textBox_ItemSerach.Text, dataSet_ItemDB, radioButton_SerachID);
                 }
             }
             catch(Exception ex)
