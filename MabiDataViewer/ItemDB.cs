@@ -11,7 +11,13 @@ namespace MabiDataViewer
 {
     internal class ItemDB
     {
-        public static DataTable GetItemFilteredSerach(string filtered, DataSet dataSet, RadioButton raidoName)
+        private readonly Form1 _form1;
+        public ItemDB(Form1 form1)
+        {
+            _form1 = form1;
+        }
+
+        public DataTable GetItemFilteredSerach(string filtered, DataSet dataSet, RadioButton raidoName)
         {
             var query = from row in dataSet.Tables[0].AsEnumerable()
                         where row.Field<string>(raidoName.Checked ? "ID" : "Text_Name1").Contains(filtered)
@@ -20,7 +26,7 @@ namespace MabiDataViewer
             return filteredDataTable;
         }
 
-        public static DataTable GetItemStringName(DataTable dataTable)
+        public DataTable GetItemStringName(DataTable dataTable)
         {
             try
             {
@@ -45,7 +51,7 @@ namespace MabiDataViewer
             return dataTable;
         }
 
-        public static DataTable GetItemDB(DataTable dataTable, DataSet dataSet)
+        public DataTable GetItemDB(DataTable dataTable, DataSet dataSet)
         {
             XElement xmlData = XElement.Load("ItemDB.xml"); //需放置於程式同層目錄
             dataTable = getTable();
@@ -91,7 +97,7 @@ namespace MabiDataViewer
             return dataTable;
         }
 
-        private static DataTable getTable()
+        private DataTable getTable()
         {
             DataTable dataTable = new DataTable();
             dataTable = new DataTable();
@@ -187,7 +193,7 @@ namespace MabiDataViewer
             return dataTable;
         }
 
-        public static System.Drawing.Image GetItemPicture(string itemID)
+        public System.Drawing.Image GetItemPicture(string itemID)
         {
             try
             {
@@ -214,8 +220,83 @@ namespace MabiDataViewer
             return null;
         }
 
-        public static bool GetActionFlag(Control.ControlCollection controls, DataGridView dt, int row)
+        public bool GetActionFlag(DataGridView dt, int row)
         {
+            switch (dt.Rows[row].Cells[9].Value.ToString())
+            {
+                case "0":
+                    foreach (Control control in _form1.groupBox_checkbox.Controls)
+                    {
+                        if (control is CheckBox checkBox)
+                        {
+                            checkBox.Checked = true;
+                        }
+                    }
+                    _form1.checkBox_DropLock.Checked = false; _form1.checkBox_BankCharacter.Checked = false; _form1.checkBox_Destroy.Checked = false;
+                    break;
+                case "1":
+                    _form1.checkBox_DropLock.Checked = true; _form1.checkBox_Mail.Checked = true;
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    _form1.checkBox_DropLock.Checked = true; _form1.checkBox_BankAccount.Checked = true;
+                    break;
+                case "4":
+                    _form1.checkBox_Trade.Checked = true; _form1.checkBox_DropFree.Checked = true;
+                    break;
+                case "5":
+                    _form1.checkBox_DropLock.Checked = true; _form1.checkBox_BankCharacter.Checked = true;
+                    break;
+                case "6":
+                case "7":
+                case "8":
+                    break;
+                case "9":
+                    _form1.checkBox_DropLock.Checked = true;
+                    break;
+                case "10":
+                    _form1.checkBox_Destroy.Checked = true; _form1.checkBox_BankCharacter.Checked = true;
+                    break;
+                case "12":
+                    _form1.checkBox_Destroy.Checked = true; _form1.checkBox_BankAccount.Checked = true; _form1.checkBox_Pet.Checked = true;
+                    break;
+                case "13":
+                    _form1.checkBox_BankCharacter.Checked = true;
+                    break;
+                case "14":
+                    _form1.checkBox_TradeLimit.Checked = true; _form1.checkBox_DropLock.Checked = true; _form1.checkBox_BankAccount.Checked = true;
+                    break;
+                case "16":
+                    _form1.checkBox_DropLock.Checked = true;
+                    break;
+                case "17":
+                    _form1.checkBox_DropLock.Checked = true; _form1.checkBox_BankAccount.Checked = true;
+                    break;
+
+            }
+            //例外處理
+            if (dt.Rows[row].Cells[1].Value.ToString().Contains("destroyable"))
+            {
+                _form1.checkBox_Destroy.Checked = true;
+            }
+            if (dt.Rows[row].Cells[1].Value.ToString().Contains("not_dropable"))
+            {
+                _form1.checkBox_DropFree.Checked = false;
+                _form1.checkBox_DropLock.Checked = false;
+            }
+            if (dt.Rows[row].Cells[1].Value.ToString().Contains("not_mailbox"))
+            {
+                _form1.checkBox_Mail.Checked = false;
+            }
+            if (dt.Rows[row].Cells[12].Value.ToString().Contains("true"))
+            {
+                _form1.checkBox_dyeable.Checked = true;
+                if (dt.Rows[row].Cells[1].Value.ToString().Contains("not_dyeable"))
+                {
+                    _form1.checkBox_dyeable.Checked = false;
+                }
+            }
             return true;
         }
     }
