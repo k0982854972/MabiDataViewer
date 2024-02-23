@@ -11,7 +11,18 @@ namespace MabiDataViewer
 {
     internal class ItemDB
     {
-        public static DataTable GetItemFilteredSerach(string filtered, DataSet dataSet, RadioButton raidoName)
+        private readonly Form1 _form1;
+
+        /// <summary>
+        /// 建構子
+        /// </summary>
+        /// <param name="form">注入的 Form</param>
+        public ItemDB(Form1 form1)
+        {
+            _form1 = form1;
+        }
+
+        public DataTable GetItemFilteredSerach(string filtered, DataSet dataSet, RadioButton raidoName)
         {
             var query = from row in dataSet.Tables[0].AsEnumerable()
                         where row.Field<string>(raidoName.Checked ? "ID" : "Text_Name1").Contains(filtered)
@@ -20,7 +31,7 @@ namespace MabiDataViewer
             return filteredDataTable;
         }
 
-        public static DataTable GetItemStringName(DataTable dataTable)
+        public DataTable GetItemStringName(DataTable dataTable)
         {
             try
             {
@@ -38,14 +49,14 @@ namespace MabiDataViewer
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
             return dataTable;
         }
 
-        public static DataTable GetItemDB(DataTable dataTable, DataSet dataSet)
+        public DataTable GetItemDB(DataTable dataTable, DataSet dataSet)
         {
             XElement xmlData = XElement.Load("ItemDB.xml"); //需放置於程式同層目錄
             dataTable = getTable();
@@ -91,7 +102,7 @@ namespace MabiDataViewer
             return dataTable;
         }
 
-        private static DataTable getTable()
+        private DataTable getTable()
         {
             DataTable dataTable = new DataTable();
             dataTable = new DataTable();
@@ -187,7 +198,7 @@ namespace MabiDataViewer
             return dataTable;
         }
 
-        public static System.Drawing.Image GetItemPicture(string itemID)
+        public System.Drawing.Image GetItemPicture(string itemID)
         {
             try
             {
@@ -207,16 +218,22 @@ namespace MabiDataViewer
                 }
                 response.Close();
             }
-            catch (Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 return null;
             }
             return null;
         }
 
-        public static bool GetActionFlag(Control.ControlCollection controls, DataGridView dt, int row)
+        public bool GetActionFlag(Control.ControlCollection controls, DataGridView dt, int row)
         {
             return true;
+        }
+
+        private void GOOOOO()
+        {
+            _form1.UpdateCheckbox(true);
+            _form1.UpdateCheckbox(false);
         }
     }
 }
