@@ -86,7 +86,9 @@ namespace MabiDataViewer
             try 
             { 
                 var query = from row in dataSet.Tables[0].AsEnumerable()
-                            where row.Field<string>(_form1.radioButton_OptionSetID.Checked ? "ID" : _form1.radioButton_OptionSetName.Checked ? "LocalName2" : "OptionDesc").Contains($"{filtered}")
+                            where row.Field<string>(_form1.radioButton_OptionSetID.Checked ? "ID" :
+                            _form1.radioButton_OptionSetName.Checked ?
+                            "LocalName2" : "OptionDesc").Contains($"{filtered}")
                             select row;
                 DataTable filteredDataTable = query.CopyToDataTable();
                 return filteredDataTable;

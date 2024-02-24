@@ -91,6 +91,7 @@ namespace MabiDataViewer
                 checkBox_OptionSetDayBonus.Checked = false;
             }
         }
+
         private void dataGridView_ItemDB_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // 确保用户点击的是行而不是表头
