@@ -69,6 +69,12 @@ namespace MabiDataViewer
             this.label_ItemID = new System.Windows.Forms.Label();
             this.textBox_ItemXML = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label_OptionSetRate = new System.Windows.Forms.Label();
+            this.checkBox_OptionSetHelperBonus = new System.Windows.Forms.CheckBox();
+            this.checkBox_OptionSetDayBonus = new System.Windows.Forms.CheckBox();
+            this.label_OptionSetPowder = new System.Windows.Forms.Label();
+            this.comboBox_OptionSetPowder = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox_OptionSetDesc = new System.Windows.Forms.GroupBox();
             this.textBox_OptionSetBlock = new System.Windows.Forms.TextBox();
@@ -92,7 +98,7 @@ namespace MabiDataViewer
             this.label_OptionSetKeyword = new System.Windows.Forms.Label();
             this.textBox_OptionSetKeyword = new System.Windows.Forms.TextBox();
             this.dataGridView_OptionSet = new System.Windows.Forms.DataGridView();
-            this.SerachTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dataSet1 = new System.Data.DataSet();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ItemDB)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -101,6 +107,7 @@ namespace MabiDataViewer
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox_ActionFlag.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox_OptionSetDesc.SuspendLayout();
             this.groupBox_OptionSetSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_OptionSet)).BeginInit();
@@ -200,7 +207,7 @@ namespace MabiDataViewer
             // button_ItemReset
             // 
             this.button_ItemReset.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button_ItemReset.Location = new System.Drawing.Point(282, 19);
+            this.button_ItemReset.Location = new System.Drawing.Point(282, 24);
             this.button_ItemReset.Name = "button_ItemReset";
             this.button_ItemReset.Size = new System.Drawing.Size(82, 31);
             this.button_ItemReset.TabIndex = 33;
@@ -211,7 +218,7 @@ namespace MabiDataViewer
             // button_ItemSearch
             // 
             this.button_ItemSearch.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button_ItemSearch.Location = new System.Drawing.Point(194, 19);
+            this.button_ItemSearch.Location = new System.Drawing.Point(194, 24);
             this.button_ItemSearch.Name = "button_ItemSearch";
             this.button_ItemSearch.Size = new System.Drawing.Size(82, 31);
             this.button_ItemSearch.TabIndex = 30;
@@ -245,7 +252,7 @@ namespace MabiDataViewer
             // 
             this.label_ItemKeyword.AutoSize = true;
             this.label_ItemKeyword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_ItemKeyword.Location = new System.Drawing.Point(6, 25);
+            this.label_ItemKeyword.Location = new System.Drawing.Point(6, 30);
             this.label_ItemKeyword.Name = "label_ItemKeyword";
             this.label_ItemKeyword.Size = new System.Drawing.Size(58, 21);
             this.label_ItemKeyword.TabIndex = 30;
@@ -254,11 +261,11 @@ namespace MabiDataViewer
             // textBox_ItemKeyword
             // 
             this.textBox_ItemKeyword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox_ItemKeyword.Location = new System.Drawing.Point(64, 20);
+            this.textBox_ItemKeyword.Location = new System.Drawing.Point(64, 25);
             this.textBox_ItemKeyword.Name = "textBox_ItemKeyword";
             this.textBox_ItemKeyword.Size = new System.Drawing.Size(122, 29);
             this.textBox_ItemKeyword.TabIndex = 30;
-            this.SerachTip.SetToolTip(this.textBox_ItemKeyword, "輸入道具編號或名稱");
+            this.ToolTip.SetToolTip(this.textBox_ItemKeyword, "輸入道具編號或名稱");
             // 
             // label_Bundle
             // 
@@ -515,6 +522,7 @@ namespace MabiDataViewer
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.groupBox_OptionSetDesc);
             this.tabPage2.Controls.Add(this.groupBox_OptionSetSelect);
@@ -526,6 +534,81 @@ namespace MabiDataViewer
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "OptionSet";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label_OptionSetRate);
+            this.groupBox1.Controls.Add(this.checkBox_OptionSetHelperBonus);
+            this.groupBox1.Controls.Add(this.checkBox_OptionSetDayBonus);
+            this.groupBox1.Controls.Add(this.label_OptionSetPowder);
+            this.groupBox1.Controls.Add(this.comboBox_OptionSetPowder);
+            this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.groupBox1.Location = new System.Drawing.Point(1066, 758);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(375, 132);
+            this.groupBox1.TabIndex = 35;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "賦予成功率計算";
+            // 
+            // label_OptionSetRate
+            // 
+            this.label_OptionSetRate.AutoSize = true;
+            this.label_OptionSetRate.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetRate.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.label_OptionSetRate.Location = new System.Drawing.Point(7, 94);
+            this.label_OptionSetRate.Name = "label_OptionSetRate";
+            this.label_OptionSetRate.Size = new System.Drawing.Size(0, 19);
+            this.label_OptionSetRate.TabIndex = 46;
+            this.ToolTip.SetToolTip(this.label_OptionSetRate, "((智力 - 25) / 350 + 1 + 魔法粉加成 + 星期四秋收加成) * 賦予卷軸基本成功率 + 透過賦予小幫手 = 最終成功率\r\n");
+            // 
+            // checkBox_OptionSetHelperBonus
+            // 
+            this.checkBox_OptionSetHelperBonus.AutoSize = true;
+            this.checkBox_OptionSetHelperBonus.Location = new System.Drawing.Point(194, 60);
+            this.checkBox_OptionSetHelperBonus.Name = "checkBox_OptionSetHelperBonus";
+            this.checkBox_OptionSetHelperBonus.Size = new System.Drawing.Size(141, 25);
+            this.checkBox_OptionSetHelperBonus.TabIndex = 45;
+            this.checkBox_OptionSetHelperBonus.Text = "賦予小幫手加成";
+            this.checkBox_OptionSetHelperBonus.UseVisualStyleBackColor = true;
+            this.checkBox_OptionSetHelperBonus.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
+            // 
+            // checkBox_OptionSetDayBonus
+            // 
+            this.checkBox_OptionSetDayBonus.AutoSize = true;
+            this.checkBox_OptionSetDayBonus.Location = new System.Drawing.Point(11, 60);
+            this.checkBox_OptionSetDayBonus.Name = "checkBox_OptionSetDayBonus";
+            this.checkBox_OptionSetDayBonus.Size = new System.Drawing.Size(141, 25);
+            this.checkBox_OptionSetDayBonus.TabIndex = 44;
+            this.checkBox_OptionSetDayBonus.Text = "星期四秋收加成";
+            this.checkBox_OptionSetDayBonus.UseVisualStyleBackColor = true;
+            this.checkBox_OptionSetDayBonus.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
+            // 
+            // label_OptionSetPowder
+            // 
+            this.label_OptionSetPowder.AutoSize = true;
+            this.label_OptionSetPowder.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_OptionSetPowder.Location = new System.Drawing.Point(6, 30);
+            this.label_OptionSetPowder.Name = "label_OptionSetPowder";
+            this.label_OptionSetPowder.Size = new System.Drawing.Size(138, 21);
+            this.label_OptionSetPowder.TabIndex = 43;
+            this.label_OptionSetPowder.Text = "請選擇魔法粉種類";
+            // 
+            // comboBox_OptionSetPowder
+            // 
+            this.comboBox_OptionSetPowder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_OptionSetPowder.FormattingEnabled = true;
+            this.comboBox_OptionSetPowder.Items.AddRange(new object[] {
+            "魔法粉 | 0",
+            "聖魔法粉 | 0",
+            "精製魔法粉 | 5",
+            "精靈魔法粉 | 10",
+            "古代魔法粉 | 50",
+            "神聖魔法粉 | 60",
+            "稀有魔法粉 | 60"});
+            this.comboBox_OptionSetPowder.Location = new System.Drawing.Point(194, 26);
+            this.comboBox_OptionSetPowder.Name = "comboBox_OptionSetPowder";
+            this.comboBox_OptionSetPowder.Size = new System.Drawing.Size(170, 29);
+            this.comboBox_OptionSetPowder.TabIndex = 0;
             // 
             // label2
             // 
@@ -553,27 +636,27 @@ namespace MabiDataViewer
             this.groupBox_OptionSetDesc.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox_OptionSetDesc.Location = new System.Drawing.Point(1066, 93);
             this.groupBox_OptionSetDesc.Name = "groupBox_OptionSetDesc";
-            this.groupBox_OptionSetDesc.Size = new System.Drawing.Size(375, 798);
+            this.groupBox_OptionSetDesc.Size = new System.Drawing.Size(375, 659);
             this.groupBox_OptionSetDesc.TabIndex = 38;
             this.groupBox_OptionSetDesc.TabStop = false;
-            this.groupBox_OptionSetDesc.Text = "詳細賦予資料";
+            this.groupBox_OptionSetDesc.Text = "基本賦予資料";
             // 
             // textBox_OptionSetBlock
             // 
             this.textBox_OptionSetBlock.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox_OptionSetBlock.Location = new System.Drawing.Point(9, 645);
+            this.textBox_OptionSetBlock.Location = new System.Drawing.Point(9, 545);
             this.textBox_OptionSetBlock.Multiline = true;
             this.textBox_OptionSetBlock.Name = "textBox_OptionSetBlock";
             this.textBox_OptionSetBlock.ReadOnly = true;
             this.textBox_OptionSetBlock.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox_OptionSetBlock.Size = new System.Drawing.Size(355, 146);
+            this.textBox_OptionSetBlock.Size = new System.Drawing.Size(355, 106);
             this.textBox_OptionSetBlock.TabIndex = 42;
             // 
             // label_OptionSetBlock
             // 
             this.label_OptionSetBlock.AutoSize = true;
             this.label_OptionSetBlock.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_OptionSetBlock.Location = new System.Drawing.Point(6, 610);
+            this.label_OptionSetBlock.Location = new System.Drawing.Point(6, 510);
             this.label_OptionSetBlock.Name = "label_OptionSetBlock";
             this.label_OptionSetBlock.Size = new System.Drawing.Size(142, 21);
             this.label_OptionSetBlock.TabIndex = 41;
@@ -582,7 +665,7 @@ namespace MabiDataViewer
             // textBox_OptionSetAllow
             // 
             this.textBox_OptionSetAllow.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox_OptionSetAllow.Location = new System.Drawing.Point(9, 530);
+            this.textBox_OptionSetAllow.Location = new System.Drawing.Point(9, 430);
             this.textBox_OptionSetAllow.Multiline = true;
             this.textBox_OptionSetAllow.Name = "textBox_OptionSetAllow";
             this.textBox_OptionSetAllow.ReadOnly = true;
@@ -594,7 +677,7 @@ namespace MabiDataViewer
             // 
             this.label_OptionSetAllow.AutoSize = true;
             this.label_OptionSetAllow.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_OptionSetAllow.Location = new System.Drawing.Point(6, 495);
+            this.label_OptionSetAllow.Location = new System.Drawing.Point(6, 395);
             this.label_OptionSetAllow.Name = "label_OptionSetAllow";
             this.label_OptionSetAllow.Size = new System.Drawing.Size(126, 21);
             this.label_OptionSetAllow.TabIndex = 39;
@@ -628,7 +711,7 @@ namespace MabiDataViewer
             this.textBox_OptionSetDesc.Name = "textBox_OptionSetDesc";
             this.textBox_OptionSetDesc.ReadOnly = true;
             this.textBox_OptionSetDesc.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox_OptionSetDesc.Size = new System.Drawing.Size(355, 206);
+            this.textBox_OptionSetDesc.Size = new System.Drawing.Size(355, 106);
             this.textBox_OptionSetDesc.TabIndex = 33;
             // 
             // label_OptionSetFee
@@ -679,7 +762,7 @@ namespace MabiDataViewer
             this.label_OptionSetIgnore.Name = "label_OptionSetIgnore";
             this.label_OptionSetIgnore.Size = new System.Drawing.Size(78, 21);
             this.label_OptionSetIgnore.TabIndex = 35;
-            this.label_OptionSetIgnore.Text = "無視等級:";
+            this.label_OptionSetIgnore.Text = "無視墊捲:";
             // 
             // groupBox_OptionSetSelect
             // 
@@ -711,7 +794,7 @@ namespace MabiDataViewer
             // button_OptionSetReset
             // 
             this.button_OptionSetReset.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button_OptionSetReset.Location = new System.Drawing.Point(282, 19);
+            this.button_OptionSetReset.Location = new System.Drawing.Point(282, 24);
             this.button_OptionSetReset.Name = "button_OptionSetReset";
             this.button_OptionSetReset.Size = new System.Drawing.Size(82, 31);
             this.button_OptionSetReset.TabIndex = 33;
@@ -722,7 +805,7 @@ namespace MabiDataViewer
             // button_OptionSetSearch
             // 
             this.button_OptionSetSearch.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button_OptionSetSearch.Location = new System.Drawing.Point(194, 19);
+            this.button_OptionSetSearch.Location = new System.Drawing.Point(194, 24);
             this.button_OptionSetSearch.Name = "button_OptionSetSearch";
             this.button_OptionSetSearch.Size = new System.Drawing.Size(82, 31);
             this.button_OptionSetSearch.TabIndex = 30;
@@ -756,7 +839,7 @@ namespace MabiDataViewer
             // 
             this.label_OptionSetKeyword.AutoSize = true;
             this.label_OptionSetKeyword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_OptionSetKeyword.Location = new System.Drawing.Point(6, 25);
+            this.label_OptionSetKeyword.Location = new System.Drawing.Point(6, 30);
             this.label_OptionSetKeyword.Name = "label_OptionSetKeyword";
             this.label_OptionSetKeyword.Size = new System.Drawing.Size(58, 21);
             this.label_OptionSetKeyword.TabIndex = 30;
@@ -765,11 +848,11 @@ namespace MabiDataViewer
             // textBox_OptionSetKeyword
             // 
             this.textBox_OptionSetKeyword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox_OptionSetKeyword.Location = new System.Drawing.Point(64, 20);
+            this.textBox_OptionSetKeyword.Location = new System.Drawing.Point(64, 25);
             this.textBox_OptionSetKeyword.Name = "textBox_OptionSetKeyword";
             this.textBox_OptionSetKeyword.Size = new System.Drawing.Size(122, 29);
             this.textBox_OptionSetKeyword.TabIndex = 30;
-            this.SerachTip.SetToolTip(this.textBox_OptionSetKeyword, "輸入道具編號或名稱");
+            this.ToolTip.SetToolTip(this.textBox_OptionSetKeyword, "輸入賦予編號、名稱、內容");
             // 
             // dataGridView_OptionSet
             // 
@@ -829,6 +912,8 @@ namespace MabiDataViewer
             this.groupBox_ActionFlag.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox_OptionSetDesc.ResumeLayout(false);
             this.groupBox_OptionSetDesc.PerformLayout();
             this.groupBox_OptionSetSelect.ResumeLayout(false);
@@ -849,7 +934,7 @@ namespace MabiDataViewer
         private System.Windows.Forms.Label label_ItemID;
         private System.Windows.Forms.TextBox textBox_ItemCategory;
         private System.Windows.Forms.Label label_ItemName;
-        private System.Windows.Forms.ToolTip SerachTip;
+        private System.Windows.Forms.ToolTip ToolTip;
         private System.Windows.Forms.TextBox textBox_ItemDesc;
         public System.Windows.Forms.CheckBox checkBox_Trade;
         public System.Windows.Forms.CheckBox checkBox_BankCharacter;
@@ -899,6 +984,12 @@ namespace MabiDataViewer
         private System.Windows.Forms.TextBox textBox_OptionSetBlock;
         private System.Windows.Forms.Label label_OptionSetBlock;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBox_OptionSetPowder;
+        private System.Windows.Forms.Label label_OptionSetPowder;
+        private System.Windows.Forms.CheckBox checkBox_OptionSetDayBonus;
+        private System.Windows.Forms.Label label_OptionSetRate;
+        private System.Windows.Forms.CheckBox checkBox_OptionSetHelperBonus;
     }
 }
 

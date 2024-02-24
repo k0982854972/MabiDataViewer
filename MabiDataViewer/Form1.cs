@@ -3,6 +3,8 @@ using System.Data;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace MabiDataViewer
 {
@@ -22,14 +24,7 @@ namespace MabiDataViewer
             InitializeComponent();
             _itemDB = new ItemDB(this);
             _optionSet = new OptionSet(this);
-            radioButton_SerachID.CheckedChanged += (sender, e) =>
-            {
-                radioButton_SearchName.Checked = radioButton_SerachID.Checked ? false : radioButton_SearchName.Checked;
-            };
-            radioButton_SearchName.CheckedChanged += (sender, e) =>
-            {
-                radioButton_SerachID.Checked = radioButton_SearchName.Checked ? false : radioButton_SerachID.Checked;
-            };
+            comboBox_OptionSetPowder.SelectedIndex = 0;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -58,18 +53,20 @@ namespace MabiDataViewer
                         dataGridView_OptionSet.DataSource = dataSet_OptionSet.Tables[0];
                         dataGridView_OptionSet.Columns[10].Visible = false;
                         dataGridView_OptionSet.Columns[11].Visible = false;
+
+                        foreach (DataGridViewColumn col in dataGridView_ItemDB.Columns)
+                        {
+                            col.SortMode = DataGridViewColumnSortMode.NotSortable;
+                        }
+                        foreach (DataGridViewColumn col in dataGridView_OptionSet.Columns)
+                        {
+                            col.SortMode = DataGridViewColumnSortMode.NotSortable;
+                        }
                         stopwatch.Stop();
                         label1.Text = $"首次加載耗時 : {stopwatch.Elapsed.TotalMilliseconds / 1000} 秒";
                     }));
                 });
-                foreach (DataGridViewColumn col in dataGridView_ItemDB.Columns)
-                {
-                    col.SortMode = DataGridViewColumnSortMode.NotSortable;
-                }
-                foreach (DataGridViewColumn col in dataGridView_OptionSet.Columns)
-                {
-                    col.SortMode = DataGridViewColumnSortMode.NotSortable;
-                }
+
                 
             }
             catch (Exception ex)
@@ -79,6 +76,21 @@ namespace MabiDataViewer
             }
         }
 
+        private void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+            System.Windows.Forms.CheckBox checkBox = (System.Windows.Forms.CheckBox)sender;
+
+            // 检查哪个复选框被选中，并取消另一个复选框的选中状态
+            if (checkBox == checkBox_OptionSetDayBonus && checkBox.Checked)
+            {
+                checkBox_OptionSetHelperBonus.Checked = false;
+            }
+            else if (checkBox == checkBox_OptionSetHelperBonus && checkBox.Checked)
+            {
+                checkBox_OptionSetDayBonus.Checked = false;
+            }
+        }
         private void dataGridView_ItemDB_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // 确保用户点击的是行而不是表头
@@ -106,14 +118,19 @@ namespace MabiDataViewer
                 int row = e.RowIndex;
                 int col = e.ColumnIndex;
                 DataGridView dt = sender as DataGridView;
-                string[] ranks = {"練習", "F", "E", "D", "C", "B", "A", "9", "8", "7", "6", "5", "4", "3", "2", "1" };
-                string[] usages = { "接頭", "接尾", "Unused", "自然力", "改造賦予", "", "", "聖火", "工匠改造"};
+                string[] ranks = { "", "F", "E", "D", "C", "B", "A", "9", "8", "7", "6", "5", "4", "3", "2", "1" };
+                string[] usages = { "接頭", "接尾", "Unused", "自然力", "改造賦予", "", "", "聖火", "工匠改造" };
+                int[] level_rates = { 0, 75, 70, 65, 60, 55, 50, 35, 33, 30, 27, 22, 16, 11, 7, 5 };
+                double[] powder_rates = { 0, 0, 0.05, 0.1, 0.5, 0.6, 0.6 };
+                double OptionSetSuccessRate = ((200.0 - 25.0) / 350.0 + 1 + powder_rates[comboBox_OptionSetPowder.SelectedIndex] + (checkBox_OptionSetDayBonus.Checked ? 0.1 : 0)) * level_rates[int.Parse(dt.Rows[row].Cells[5].Value.ToString())] + (checkBox_OptionSetHelperBonus.Checked ? 10.0 : 0);
+                if(OptionSetSuccessRate >= 90) { OptionSetSuccessRate = 90; }
                 label_OptionSetID.Text = "賦予編號: " + dt.Rows[row].Cells[0].Value.ToString();
                 label_OptionSetName.Text = "賦予名稱: " + dt.Rows[row].Cells[2].Value.ToString();
                 label_OptionSetLevel.Text = "賦予等級: Rank " + ranks[int.Parse(dt.Rows[row].Cells[5].Value.ToString())];
-                label_OptionSetIgnore.Text = "無視等級: " + dt.Rows[row].Cells[7].Value.ToString();
+                label_OptionSetIgnore.Text = "無視墊捲: " + dt.Rows[row].Cells[7].Value.ToString();
                 label_OptionSetUsage.Text = "賦予詞綴: " + usages[int.Parse(dt.Rows[row].Cells[10].Value.ToString())];
                 label_OptionSetFee.Text = "修理倍率: " + dt.Rows[row].Cells[6].Value.ToString() + "%";
+                label_OptionSetRate.Text = dt.Rows[row].Cells[5].Value.ToString() != "0" && dt.Rows[row].Cells[11].Value.ToString() != "true" ? $"((200 - 25) / 350 + 1 + {powder_rates[comboBox_OptionSetPowder.SelectedIndex]}{(checkBox_OptionSetDayBonus.Checked ? " + 0.1" : "")}) * {level_rates[int.Parse(dt.Rows[row].Cells[5].Value.ToString())]}{(checkBox_OptionSetHelperBonus.Checked ? " + 10" : "")} = {OptionSetSuccessRate}%" : "100%";
                 textBox_OptionSetDesc.Text = dt.Rows[row].Cells[4].Value.ToString().Replace("\\n", Environment.NewLine);
                 textBox_OptionSetAllow.Text = dt.Rows[row].Cells[8].Value.ToString().Replace("|", Environment.NewLine);
                 textBox_OptionSetBlock.Text = dt.Rows[row].Cells[9].Value.ToString().Replace("|", Environment.NewLine);

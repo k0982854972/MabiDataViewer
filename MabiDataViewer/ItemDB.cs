@@ -319,7 +319,7 @@ namespace MabiDataViewer
                     }
                 }
             }
-            return attributeValue;
+            return null;
         }
     }
 }
