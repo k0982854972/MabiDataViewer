@@ -18,10 +18,10 @@ namespace MabiDataViewer
         private DataSet dataSet_OptionSetString = new DataSet();
         private ItemDB _itemDB;
         private OptionSet _optionSet;
-        public string OptionSetLevel = "", OptionSetIsAlwaysSuccess ="";
-        public int[] level_rates = { 0, 75, 70, 65, 60, 55, 50, 35, 33, 30, 27, 22, 16, 11, 7, 5 };
-        public double[] powder_rates = { 0, 0, 0.05, 0.1, 0.5, 0.6, 0.6 };
-        public double OptionSetSuccessRate;
+        private string OptionSetLevel, OptionSetIsAlwaysSuccess;
+        private int[] level_rates = { 0, 75, 70, 65, 60, 55, 50, 35, 33, 30, 27, 22, 16, 11, 7, 5 };
+        private double[] powder_rates = { 0, 0, 0.05, 0.1, 0.5, 0.6, 0.6 };
+        private double OptionSetSuccessRate;
 
         public Form1()
         {
@@ -134,7 +134,7 @@ namespace MabiDataViewer
                 int col = e.ColumnIndex;
                 DataGridView dt = sender as DataGridView;
                 string[] ranks = { "", "F", "E", "D", "C", "B", "A", "9", "8", "7", "6", "5", "4", "3", "2", "1" };
-                string[] usages = { "接頭", "接尾", "Unused", "自然力", "改造賦予", "", "", "聖火", "工匠改造" };
+                string[] usages = { "接頭", "接尾", "Unused(不可當作一般賦予使用)", "自然力(不可當作一般賦予使用)", "改造賦予(不可當作一般賦予使用)", "", "", "聖火(不可當作一般賦予使用)", "工匠改造(不可當作一般賦予使用)" };
                 checkBox_OptionSetDayBonus.Enabled = true; checkBox_OptionSetHelperBonus.Enabled = true; comboBox_OptionSetPowder.Enabled = true;
                 OptionSetLevel = dt.Rows[row].Cells[5].Value.ToString();
                 OptionSetIsAlwaysSuccess = dt.Rows[row].Cells[11].Value.ToString();

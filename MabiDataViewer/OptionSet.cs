@@ -103,9 +103,9 @@ namespace MabiDataViewer
         public String GetOptionSetSucceseRate(double OptionSetSuccessRate, double powder_rates, int level_rates, string OptionSetLevel, string OptionSetIsAlwaysSuccess, CheckBox OptionSetDayBonus, CheckBox OptionSetHelperBonus)
         {
             OptionSetSuccessRate = ((200.0 - 25.0) / 350.0 + 1 + powder_rates + (OptionSetDayBonus.Checked ? 0.1 : 0)) * level_rates + (OptionSetHelperBonus.Checked ? 10.0 : 0);
-            if (OptionSetSuccessRate >= 90) { OptionSetSuccessRate = 90; }
-            string Reslue = OptionSetLevel != "0" && OptionSetIsAlwaysSuccess != "true" ? $"((200 - 25) / 350 + 1 + {powder_rates}{(OptionSetDayBonus.Checked ? " + 0.1" : "")}) * {level_rates}{(OptionSetHelperBonus.Checked ? " + 10" : "")} = {OptionSetSuccessRate}%" : "100%";
-            return Reslue;
+            OptionSetSuccessRate = OptionSetSuccessRate >= 90 ? 90 : OptionSetSuccessRate;
+            string Result = OptionSetLevel != "0" && OptionSetIsAlwaysSuccess != "true" ? $"((200 - 25) / 350 + 1 + {powder_rates}{(OptionSetDayBonus.Checked ? " + 0.1" : "")}) * {level_rates}{(OptionSetHelperBonus.Checked ? " + 10" : "")} = {OptionSetSuccessRate}%" : "100%";
+            return Result;
         }
 
         private static DataTable getTable()
