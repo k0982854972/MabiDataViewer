@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // 變更這些屬性的值即可修改組件的相關
 // 資訊。
 [assembly: AssemblyTitle("MabiDataViewer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("查詢工具")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Suiyue")]
 [assembly: AssemblyProduct("MabiDataViewer")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("Suiyue")]
 [assembly: AssemblyCulture("")]
 
 // 將 ComVisible 設為 false 可對 COM 元件隱藏

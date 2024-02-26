@@ -18,6 +18,10 @@ namespace MabiDataViewer
         private DataSet dataSet_OptionSetString = new DataSet();
         private ItemDB _itemDB;
         private OptionSet _optionSet;
+        public string OptionSetLevel = "", OptionSetIsAlwaysSuccess ="";
+        public int[] level_rates = { 0, 75, 70, 65, 60, 55, 50, 35, 33, 30, 27, 22, 16, 11, 7, 5 };
+        public double[] powder_rates = { 0, 0, 0.05, 0.1, 0.5, 0.6, 0.6 };
+        public double OptionSetSuccessRate;
 
         public Form1()
         {
@@ -54,6 +58,9 @@ namespace MabiDataViewer
                         dataGridView_OptionSet.Columns[10].Visible = false;
                         dataGridView_OptionSet.Columns[11].Visible = false;
 
+                        
+                        button_ItemSearch.Enabled = true; button_ItemReset.Enabled = true;
+                        button_OptionSetSearch.Enabled = true; button_OptionSetReset.Enabled = true;
                         foreach (DataGridViewColumn col in dataGridView_ItemDB.Columns)
                         {
                             col.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -66,8 +73,6 @@ namespace MabiDataViewer
                         label1.Text = $"首次加載耗時 : {stopwatch.Elapsed.TotalMilliseconds / 1000} 秒";
                     }));
                 });
-
-                
             }
             catch (Exception ex)
             {
@@ -89,6 +94,15 @@ namespace MabiDataViewer
             else if (checkBox == checkBox_OptionSetHelperBonus && checkBox.Checked)
             {
                 checkBox_OptionSetDayBonus.Checked = false;
+            }
+            label_OptionSetRate.Text = _optionSet.GetOptionSetSucceseRate(OptionSetSuccessRate, powder_rates[comboBox_OptionSetPowder.SelectedIndex], level_rates[int.Parse(OptionSetLevel)], OptionSetLevel, OptionSetIsAlwaysSuccess, checkBox_OptionSetDayBonus, checkBox_OptionSetHelperBonus);
+        }
+
+        private void comboBox_OptionSetPowder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dataSet_OptionSet.Tables.Count > 0) 
+            { 
+                label_OptionSetRate.Text = _optionSet.GetOptionSetSucceseRate(OptionSetSuccessRate, powder_rates[comboBox_OptionSetPowder.SelectedIndex], level_rates[int.Parse(OptionSetLevel)], OptionSetLevel, OptionSetIsAlwaysSuccess, checkBox_OptionSetDayBonus, checkBox_OptionSetHelperBonus);
             }
         }
 
@@ -121,20 +135,20 @@ namespace MabiDataViewer
                 DataGridView dt = sender as DataGridView;
                 string[] ranks = { "", "F", "E", "D", "C", "B", "A", "9", "8", "7", "6", "5", "4", "3", "2", "1" };
                 string[] usages = { "接頭", "接尾", "Unused", "自然力", "改造賦予", "", "", "聖火", "工匠改造" };
-                int[] level_rates = { 0, 75, 70, 65, 60, 55, 50, 35, 33, 30, 27, 22, 16, 11, 7, 5 };
-                double[] powder_rates = { 0, 0, 0.05, 0.1, 0.5, 0.6, 0.6 };
-                double OptionSetSuccessRate = ((200.0 - 25.0) / 350.0 + 1 + powder_rates[comboBox_OptionSetPowder.SelectedIndex] + (checkBox_OptionSetDayBonus.Checked ? 0.1 : 0)) * level_rates[int.Parse(dt.Rows[row].Cells[5].Value.ToString())] + (checkBox_OptionSetHelperBonus.Checked ? 10.0 : 0);
-                if(OptionSetSuccessRate >= 90) { OptionSetSuccessRate = 90; }
+                checkBox_OptionSetDayBonus.Enabled = true; checkBox_OptionSetHelperBonus.Enabled = true; comboBox_OptionSetPowder.Enabled = true;
+                OptionSetLevel = dt.Rows[row].Cells[5].Value.ToString();
+                OptionSetIsAlwaysSuccess = dt.Rows[row].Cells[11].Value.ToString();
                 label_OptionSetID.Text = "賦予編號: " + dt.Rows[row].Cells[0].Value.ToString();
                 label_OptionSetName.Text = "賦予名稱: " + dt.Rows[row].Cells[2].Value.ToString();
                 label_OptionSetLevel.Text = "賦予等級: Rank " + ranks[int.Parse(dt.Rows[row].Cells[5].Value.ToString())];
                 label_OptionSetIgnore.Text = "無視墊捲: " + dt.Rows[row].Cells[7].Value.ToString();
                 label_OptionSetUsage.Text = "賦予詞綴: " + usages[int.Parse(dt.Rows[row].Cells[10].Value.ToString())];
                 label_OptionSetFee.Text = "修理倍率: " + dt.Rows[row].Cells[6].Value.ToString() + "%";
-                label_OptionSetRate.Text = dt.Rows[row].Cells[5].Value.ToString() != "0" && dt.Rows[row].Cells[11].Value.ToString() != "true" ? $"((200 - 25) / 350 + 1 + {powder_rates[comboBox_OptionSetPowder.SelectedIndex]}{(checkBox_OptionSetDayBonus.Checked ? " + 0.1" : "")}) * {level_rates[int.Parse(dt.Rows[row].Cells[5].Value.ToString())]}{(checkBox_OptionSetHelperBonus.Checked ? " + 10" : "")} = {OptionSetSuccessRate}%" : "100%";
+                label_OptionSetRate.Text = _optionSet.GetOptionSetSucceseRate(OptionSetSuccessRate, powder_rates[comboBox_OptionSetPowder.SelectedIndex], level_rates[int.Parse(OptionSetLevel)], OptionSetLevel, OptionSetIsAlwaysSuccess, checkBox_OptionSetDayBonus, checkBox_OptionSetHelperBonus);
                 textBox_OptionSetDesc.Text = dt.Rows[row].Cells[4].Value.ToString().Replace("\\n", Environment.NewLine);
                 textBox_OptionSetAllow.Text = dt.Rows[row].Cells[8].Value.ToString().Replace("|", Environment.NewLine);
                 textBox_OptionSetBlock.Text = dt.Rows[row].Cells[9].Value.ToString().Replace("|", Environment.NewLine);
+                
             }
         }
 

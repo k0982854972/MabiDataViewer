@@ -206,6 +206,7 @@ namespace MabiDataViewer
             // 
             // button_ItemReset
             // 
+            this.button_ItemReset.Enabled = false;
             this.button_ItemReset.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button_ItemReset.Location = new System.Drawing.Point(282, 24);
             this.button_ItemReset.Name = "button_ItemReset";
@@ -217,6 +218,7 @@ namespace MabiDataViewer
             // 
             // button_ItemSearch
             // 
+            this.button_ItemSearch.Enabled = false;
             this.button_ItemSearch.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button_ItemSearch.Location = new System.Drawing.Point(194, 24);
             this.button_ItemSearch.Name = "button_ItemSearch";
@@ -564,6 +566,7 @@ namespace MabiDataViewer
             // checkBox_OptionSetHelperBonus
             // 
             this.checkBox_OptionSetHelperBonus.AutoSize = true;
+            this.checkBox_OptionSetHelperBonus.Enabled = false;
             this.checkBox_OptionSetHelperBonus.Location = new System.Drawing.Point(194, 60);
             this.checkBox_OptionSetHelperBonus.Name = "checkBox_OptionSetHelperBonus";
             this.checkBox_OptionSetHelperBonus.Size = new System.Drawing.Size(141, 25);
@@ -575,6 +578,7 @@ namespace MabiDataViewer
             // checkBox_OptionSetDayBonus
             // 
             this.checkBox_OptionSetDayBonus.AutoSize = true;
+            this.checkBox_OptionSetDayBonus.Enabled = false;
             this.checkBox_OptionSetDayBonus.Location = new System.Drawing.Point(11, 60);
             this.checkBox_OptionSetDayBonus.Name = "checkBox_OptionSetDayBonus";
             this.checkBox_OptionSetDayBonus.Size = new System.Drawing.Size(141, 25);
@@ -596,6 +600,7 @@ namespace MabiDataViewer
             // comboBox_OptionSetPowder
             // 
             this.comboBox_OptionSetPowder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_OptionSetPowder.Enabled = false;
             this.comboBox_OptionSetPowder.FormattingEnabled = true;
             this.comboBox_OptionSetPowder.Items.AddRange(new object[] {
             "魔法粉 | 0",
@@ -609,6 +614,7 @@ namespace MabiDataViewer
             this.comboBox_OptionSetPowder.Name = "comboBox_OptionSetPowder";
             this.comboBox_OptionSetPowder.Size = new System.Drawing.Size(170, 29);
             this.comboBox_OptionSetPowder.TabIndex = 0;
+            this.comboBox_OptionSetPowder.SelectedIndexChanged += new System.EventHandler(this.comboBox_OptionSetPowder_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -793,6 +799,7 @@ namespace MabiDataViewer
             // 
             // button_OptionSetReset
             // 
+            this.button_OptionSetReset.Enabled = false;
             this.button_OptionSetReset.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button_OptionSetReset.Location = new System.Drawing.Point(282, 24);
             this.button_OptionSetReset.Name = "button_OptionSetReset";
@@ -804,6 +811,7 @@ namespace MabiDataViewer
             // 
             // button_OptionSetSearch
             // 
+            this.button_OptionSetSearch.Enabled = false;
             this.button_OptionSetSearch.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button_OptionSetSearch.Location = new System.Drawing.Point(194, 24);
             this.button_OptionSetSearch.Name = "button_OptionSetSearch";
